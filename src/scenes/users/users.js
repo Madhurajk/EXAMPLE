@@ -100,8 +100,8 @@ const handleDelete = (userId) => {
                         </Box>
                     </div>
                     <Box
-                    m="40px 0 0 0"
-                    height="5vh"
+                    m="20px 0 0 0"
+                    height="3vh"
                     display="flex"  alignItems="center"
                     >
                     <button

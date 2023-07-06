@@ -27,6 +27,29 @@ export const rtkQueryApi = createApi({
                 method: 'DELETE',
             })
         }),
+        rooms: builder.query({
+            query: () => '/rooms'
+        }),
+        addRooms: builder.mutation({
+            query: (room) => ({
+                url: "/rooms",
+                method: "POST",
+                body: room,
+            })
+        }),
+        editRoom: builder.mutation({
+            query: (room) => ({
+                url: `/rooms/${room.id}`,
+                method: 'PUT',
+                body: room
+            })
+        }),
+        deleteRoom: builder.mutation({
+            query: (id) => ({
+                url: `/rooms/${id}`,
+                method: 'DELETE',
+            })
+        }),
     
     })
 })
@@ -34,5 +57,9 @@ export const rtkQueryApi = createApi({
 export const { useGetUsersQuery,
 useAddUsersMutation,
 useEditUserMutation,
-useDeleteUserMutation,
+useDeleteUserMutation, 
+useRoomsQuery, 
+useAddRoomsMutation,
+useEditRoomMutation,
+useDeleteRoomMutation,
 } = rtkQueryApi

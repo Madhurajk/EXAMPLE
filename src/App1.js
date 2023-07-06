@@ -14,6 +14,7 @@ import DateRoom from './components/Booking/DateRoom';
 import MeetingRoom from './components/MeetingRoom/MeetingRoom';
 import BtnBook from './components/BtnBook/BtnBook';
 import EditUserForms from './components/RoomForms/EditUserForm';
+import EditMeetingRoom from './components/MeetingRoom/EditMeetingRoom';
 
 function App1() {
   return (
@@ -32,6 +33,8 @@ function App1() {
                 <Route path="/meetingroom" element={<MeetingRoom />} />
                 <Route path="/btnbook" element={<BtnBook />} />
                 <Route path="/editUserForms/:id" element={<EditUserForms />}></Route>
+                <Route path="/editmeetingroom/:id" element={<EditMeetingRoom />}></Route>
+
                </Routes>
     </UserContextProvider>
   );

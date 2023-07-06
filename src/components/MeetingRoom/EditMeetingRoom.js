@@ -4,53 +4,44 @@ import { ColorModeContext, useMode } from "../../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Sidebar from "../../scenes/global/Sidebar";
 import { Box, Typography, useTheme } from "@mui/material";
-import { useAddRoomsMutation } from '../../API/rtkQueryApi';
-import { useNavigate } from "react-router-dom";
+import { useEditRoomMutation } from '../../API/rtkQueryApi';
+import { useLocation } from "react-router-dom";
 
-function MeetingRoom() {
+
+function EditMeetingRoom() {
 
   const [theme1, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
-  const [addRooms, error, isLoading] = useAddRoomsMutation()
-  const [successMessage, setSuccessMessage] = useState("");
-  const navigate = useNavigate();
+  const [editroom, { isLoading }] = useEditRoomMutation();
+  const location = useLocation();
+  const { room } = location.state;
 
 
-    const [title, setTitle] = useState('');
-    const [capacity, setCapacity] = useState('');
-    const [description, setDescription] = useState('');
-    const [bookfor, setBookFor] = useState([]);
-    const [priceperday, setPricePerDay] = useState('');
-    const [status, setStatus] = useState('');
+    const [title, setTitle] = useState(room?.title);
+    const [capacity, setCapacity] = useState(room?.capacity);
+    const [description, setDescription] = useState(room?.description);
+    const [bookfor, setBookFor] = useState(room.bookfor || []);
+    const [priceperday, setPricePerDay] = useState(room?.priceperday);
+    const [status, setStatus] = useState(room?.status);
 
-  const onSubmitHandler = (event) => {
+const onSubmitHandler = (event) => {
     event.preventDefault();
-    const newRoom = {
-        title,
-        capacity: parseInt(capacity),
-        description,
-        bookfor,
-        priceperday,
-        status
-    };
-    addRooms(newRoom).unwrap().then((response) => {
-        setSuccessMessage("Room added successfully!");
+    const updatedRoom = { ...room, title, capacity, description, bookfor, priceperday, status };
+    editroom(updatedRoom).unwrap().then((response) => {
+        setSuccessMessage("Room updated successfully!");
         window.location.reload();
     })
+
 }
-
 const handleCheckboxChange = (event) => {
-  const value = event.target.value;
-  if (event.target.checked) {
-      setBookFor((prevSelectedOptions) => [...prevSelectedOptions, value]);
-  } else {
-      setBookFor((prevSelectedOptions) =>
-          prevSelectedOptions.filter((option) => option !== value)
-      );
-  }
+    const optionValue = event.target.value;
+    if (event.target.checked) {
+        setBookFor([...bookfor, optionValue]);
+    } else {
+        setBookFor(bookfor.filter((option) => option !== optionValue));
+    }
 };
-
   return (
     <>
 <ColorModeContext.Provider value={colorMode}>
@@ -112,7 +103,7 @@ const handleCheckboxChange = (event) => {
           <input className="form-control" name="status" value={status} onChange={(event) => setStatus(event.target.value)} />
         </div>        
         <div className="form-group">
-          <button className="btn" onClick={onSubmitHandler} >Save</button> 
+          <button className="btn" onClick={onSubmitHandler} >Update</button> 
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button className="btn" type="clear" >Clear</button>
         </div>
@@ -128,4 +119,4 @@ const handleCheckboxChange = (event) => {
   );
 }
 
-export default MeetingRoom;
+export default EditMeetingRoom;

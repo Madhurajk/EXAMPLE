@@ -14,22 +14,52 @@
       "password": "leo@123",
       "role": "user",
       "id": 3,
-      "status": "active",
+      "status": "Active",
       "name": "madhu"
     },
     {
       "name": "Virat",
       "email": "Virat@gmail.com",
       "role": "Admin",
-      "status": "Active",
+      "status": "InActive",
       "id": 5
     },
     {
       "name": "Leo123",
       "email": "123@gmail.com",
       "role": "user",
-      "status": "active",
+      "status": "Active",
       "id": 6
+    }
+  ],
+  "rooms": [
+    {
+      "id": 2,
+      "title": "Small Conference Room",
+      "capacity": "19",
+      "status": "Active",
+      "startTime": "2023-06-30T10:00:00",
+      "endTime": "2023-06-30T11:00:00",
+      "description": "It is a large conference room. The capacity of this room is for 40 people",
+      "bookfor": [
+        "Multiple-days",
+        "Half-day",
+        "hour"
+      ],
+      "priceperday": "1500"
+    },
+    {
+      "id": 3,
+      "title": "Large Conference Room",
+      "capacity": "10",
+      "status": "InActive",
+      "startTime": "2023-06-30T10:00:00",
+      "endTime": "2023-06-30T11:00:00",
+      "description": "Panoramic room capacity of this room is for 20 people",
+      "bookfor": [
+        "hour"
+      ],
+      "priceperday": "5000"
     }
   ]
 }
