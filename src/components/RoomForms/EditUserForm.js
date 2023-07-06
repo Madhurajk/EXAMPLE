@@ -4,16 +4,20 @@ import { ColorModeContext, useMode } from "../../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Sidebar from "../../scenes/global/Sidebar";
 import { Box, Typography, useTheme } from "@mui/material";
-import { useAddUsersMutation } from '../../API/rtkQueryApi';
+import { useEditUserMutation } from '../../API/rtkQueryApi';
+import { useLocation, useNavigate } from "react-router-dom";
 
 
-function AddUserForms() {
+
+function EditUserForms() {
 
   const [theme1, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
-  const [addusers, error, isLoading] = useAddUsersMutation();
   const [successMessage, setSuccessMessage] = useState("");
+
+  const location = useLocation();
+ const { user } = location.state;
 
 
   useEffect(() => {
@@ -26,18 +30,20 @@ function AddUserForms() {
     return () => clearTimeout(timer);
   }, [successMessage]);
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [role, setRole] = useState('');
-    const [status, setStatus] = useState('');
+  const [edituser, { isLoading }] = useEditUserMutation();
+
+    const [name, setName] = useState(user?.name);
+    const [email, setEmail] = useState(user?.email);
+    const [role, setRole] = useState(user?.role);
+    const [status, setStatus] = useState(user?.status);
 
 const onSubmitHandler = (event) => {
   event.preventDefault();
-  const newUser = {
-      name,email,role,status};
-  addusers(newUser).unwrap().then((res) => {
+  const upadtUser = {
+   ...user, name,email,role,status};
+  edituser(upadtUser).unwrap().then((res) => {
       console.log("Users", res)
-      setSuccessMessage("User added successfully!");
+      setSuccessMessage("User updated successfully!");
       window.location.reload();
   })
 }
@@ -89,4 +95,4 @@ const onSubmitHandler = (event) => {
   );
 }
 
-export default AddUserForms;
+export default EditUserForms;

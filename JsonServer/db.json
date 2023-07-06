@@ -1,40 +1,35 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "Admin",
-      "password": "admin123",
-      "email": "admin@gmail.com",
-      "role": "Admin",
-      "status": "Active"
-    },
-    {
       "username": "Madhu",
-      "email": "madhu@gmail.com",
-      "role": "user",
+      "email": "leo@gmail.com",
+      "role": "Admin",
       "status": "Active",
-      "id": 2
+      "id": 2,
+      "name": "Leo"
     },
     {
       "username": "Leo",
       "email": "leo@gmail.com",
       "password": "leo@123",
       "role": "user",
-      "id": 3
-    },
-    {
-      "username": "Leo1",
-      "email": "Leo1@gmail.com",
-      "role": "user",
-      "status": "Inactive",
-      "id": 4
-    },
-    {
-      "name": "mahu",
-      "email": "123@gmail.com",
-      "role": "admin",
+      "id": 3,
       "status": "active",
+      "name": "madhu"
+    },
+    {
+      "name": "Virat",
+      "email": "Virat@gmail.com",
+      "role": "Admin",
+      "status": "Active",
       "id": 5
+    },
+    {
+      "name": "Leo123",
+      "email": "123@gmail.com",
+      "role": "user",
+      "status": "active",
+      "id": 6
     }
   ]
 }

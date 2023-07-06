@@ -1,0 +1,12 @@
+table, th, td {
+    border: 1px solid;
+    height: 800%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+
+  }
+
+  table {
+    width: 100%;
+
+  }

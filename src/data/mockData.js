@@ -1,13 +1,22 @@
 import { tokens } from "../theme";
-import { useGetAllUsersQuery } from "../API/rtkQueryApi"
+
+import { useGetUsersQuery } from "../API/rtkQueryApi"
 
 
+ export const mockDataTeam =()  => {
 
-// export const mockDataTeam =(addUserForm)  => {
-
-  export const mockDataTeam = [
-
-
+  const {data, error} = useGetUsersQuery();
+ console.log(data);
+  // {data.map((data) => {
+  //   return(
+  //     id : {data.id},
+  //     name:{data.name},
+  //     role :{data.role},
+  //     status:{data.status}
+  //   )
+  // };
+ }
+ 
 // const {data:getAllUsers,error,isLoading,isSuccess} = useGetAllUsersQuery();
 
 // return(
@@ -19,13 +28,7 @@ import { useGetAllUsersQuery } from "../API/rtkQueryApi"
 //     status: {getAllUsers.status},
 //   }
 //   },
-  {
-    id: 2,
-    name: "Manager",
-    email: "Manager@gmail.com",
-    status: "Active",
-    role: "manager",
-  },
+  
 //   {
 //     id: 3,
 //     name: "madhu",
@@ -42,9 +45,9 @@ import { useGetAllUsersQuery } from "../API/rtkQueryApi"
 //     phone: "1234567890",
 //     access: "user",
 //   }
- ]
+ 
 //  )
-// };
+ 
 
 
 export const mockDataContacts = [
