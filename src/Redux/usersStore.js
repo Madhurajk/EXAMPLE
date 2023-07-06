@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { usersReducer } from "../Redux/usersSlice";
+import usersReducer from "../Redux/usersSlice";
 import { rtkQueryApi } from "../API/rtkQueryApi";
 
 const usersStore = configureStore({

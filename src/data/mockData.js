@@ -1,39 +1,51 @@
 import { tokens } from "../theme";
+import { useGetAllUsersQuery } from "../API/rtkQueryApi"
 
-export const mockDataTeam = [
+
+
+export const mockDataTeam =(addUserForm)  => {
+
+  // export const mockDataTeam = [
+
+
+const {data:getAllUsers,error,isLoading,isSuccess} = useGetAllUsersQuery();
+
+return(
   {
-    id: 1,
-    name: "Adminstration",
-    email: "Adminstration@gmail.com",
-    age: "Active",
-    phone: "8884359736",
-    access: "admin",
-  },
-  {
-    id: 2,
-    name: "Manager",
-    email: "Manager@gmail.com",
-    age: "Active",
-    phone: "1234567890",
-    access: "manager",
-  },
-  {
-    id: 3,
-    name: "madhu",
-    email: "madhu@gmail.com",
-    age: "Active",
-    phone: "1234567890",
-    access: "user",
-  },
-  {
-    id: 4,
-    name: "Leo",
-    email: "Leo@gmail.com",
-    age: "In-Active",
-    phone: "1234567890",
-    access: "user",
+    id: {getAllUsers.id},
+    name: {getAllUsers.name},
+    email: {getAllUsers.email},
+    role: {getAllUsers.role},
+    status: {getAllUsers.status},
   }
-];
+//   },
+  // {
+  //   id: 2,
+  //   name: "Manager",
+  //   email: "Manager@gmail.com",
+  //   status: "Active",
+  //   role: "manager",
+  // },
+//   {
+//     id: 3,
+//     name: "madhu",
+//     email: "madhu@gmail.com",
+//     age: "Active",
+//     phone: "1234567890",
+//     access: "user",
+//   },
+//   {
+//     id: 4,
+//     name: "Leo",
+//     email: "Leo@gmail.com",
+//     age: "In-Active",
+//     phone: "1234567890",
+//     access: "user",
+//   }
+// ]
+ )
+};
+
 
 export const mockDataContacts = [
   {
@@ -58,18 +70,18 @@ export const mockDataContacts = [
 export const mockDataInvoices = [
  {
     id: 1,
-    name: "Madhuraj",
-    email: "madhu@gmail.com",
+    room: "Small Conference Room",
+    date: "02/02/2023",
     cost: "200.00",
-    phone: "9999988888",
-    date: "03/06/2023",
+    name: "Madhuraj",
+    status: "Confirmed",
   },
   {
     id: 2,
+    room: "Large Conference Room",
+    date: "02/03/2023",
+    cost: "100.00",
     name: "Leo",
-    email: "Leo@gmail.com",
-    cost: "1.24",
-    phone: "8888877555",
-    date: "06/07/2023",
+    status: "Confirmed",
   },
 ];

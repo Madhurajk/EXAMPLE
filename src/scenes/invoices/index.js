@@ -9,6 +9,16 @@ import { ColorModeContext, useMode } from "../../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Sidebar from "../../scenes/global/Sidebar";
 import { useState } from 'react';
+import InputBase from "@mui/material/InputBase";
+import { IconButton} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+
+
 
 const Invoices = () => {
 
@@ -17,13 +27,17 @@ const [theme1, colorMode] = useMode();
 
   const navigate = useNavigate();
 
-  const userFormHandler = () =>{
-        navigate("/clientdetailsform")
-  }
+  // const userFormHandler = () =>{
+  //       navigate("/clientdetailsform")
+  // }
 
-  const dateRoomFormHandler = () =>{
-    navigate("/dateroom")
+  const userFormHandler1 = () =>{
+    navigate("/btnbook")
 }
+
+//   const dateRoomFormHandler = () =>{
+//     navigate("/dateroom")
+// }
 
 
 
@@ -32,24 +46,24 @@ const [theme1, colorMode] = useMode();
   const columns = [
     { field: "id", headerName: "ID" },
     {
-      field: "name",
-      headerName: "Name",
+      field: "room",
+      headerName: "Room",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "date",
+      headerName: "Date",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "name",
+      headerName: "Name",
       flex: 1,
     },
     {
       field: "cost",
-      headerName: "Cost",
+      headerName: "Total",
       flex: 1,
       renderCell: (params) => (
         <Typography color={colors.greenAccent[500]}>
@@ -58,8 +72,8 @@ const [theme1, colorMode] = useMode();
       ),
     },
     {
-      field: "date",
-      headerName: "Date",
+      field: "status",
+      headerName: "Status",
       flex: 1,
     },
   ];
@@ -74,7 +88,7 @@ const [theme1, colorMode] = useMode();
             <Box flexGrow={1}>
 
     <Box m="20px">
-      <Header title="Booking Details" />
+      <Header title="Bookings Lists" subtitle="Review a list of all room bookings. Using the quck buttons you can manually add new booking. change its status, edit booking details, browse and delete bookings. " />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -107,9 +121,45 @@ const [theme1, colorMode] = useMode();
           },
         }}
       >
-        <button onClick= {dateRoomFormHandler}>Booking Details</button>
-        <button onClick= {userFormHandler}>Client Details</button>
-        <br /> <br />
+        <button  onClick= {userFormHandler1} >+Add booking</button>
+        {/* <button onClick= {dateRoomFormHandler}>Booking Details</button>
+        <button onClick= {userFormHandler}>Client Details</button> */}
+
+<Box display="flex" justifyContent="space-between" p={2}>
+      <Box
+        display="flex"
+        backgroundColor={colors.greenAccent[300]}
+        borderRadius="3px"
+      >
+        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
+        <IconButton type="button" sx={{ p: 1 }}>
+          <SearchIcon />
+        </IconButton>
+      </Box>
+
+      <Box display="flex">
+        <IconButton onClick={colorMode.toggleColorMode}>
+          {theme.palette.mode === "dark" ? (
+            <DarkModeOutlinedIcon />
+          ) : (
+            <LightModeOutlinedIcon />
+          )}
+        </IconButton>
+        <IconButton>
+          <NotificationsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <SettingsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <PersonOutlinedIcon />
+        </IconButton>
+      </Box>
+      </Box>
+        
+
+
+        <br /> 
 
         <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
       </Box>

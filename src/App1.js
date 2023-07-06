@@ -12,6 +12,7 @@ import AddUserForms from './components/RoomForms/AddUserForms';
 import ClientDetailsForm from './components/Booking/ClientDetailsForm';
 import DateRoom from './components/Booking/DateRoom';
 import MeetingRoom from './components/MeetingRoom/MeetingRoom';
+import BtnBook from './components/BtnBook/BtnBook';
 
 function App1() {
   return (
@@ -28,6 +29,7 @@ function App1() {
                 <Route path="/clientdetailsform" element={<ClientDetailsForm />} />
                 <Route path="/dateroom" element={<DateRoom />} />
                 <Route path="/meetingroom" element={<MeetingRoom />} />
+                <Route path="/btnbook" element={<BtnBook />} />
                </Routes>
     </UserContextProvider>
   );

@@ -13,6 +13,8 @@ import { ColorModeContext, useMode } from "../../theme";
 import { useState } from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Sidebar from "../../scenes/global/Sidebar";
+import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
+
 
 const Team = () => {
   const theme = useTheme();
@@ -47,10 +49,10 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: "accessLevel",
+      field: "role",
       headerName: "Role",
       flex: 1,
-      renderCell: ({ row: { access } }) => {
+      renderCell: ({ row: { role } }) => {
         return (          
           <Box
             width="60%"
@@ -59,31 +61,49 @@ const Team = () => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              access === "admin"
+              role === "admin"
                 ? colors.greenAccent[600]
-                : access === "manager"
+                : role === "manager"
                 ? colors.greenAccent[700]
                 : colors.greenAccent[700]
             }
             borderRadius="2px"
           >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
-            {access === "user" && <LockOpenOutlinedIcon />}
+            {role === "admin" && <AdminPanelSettingsOutlinedIcon />}
+            {role === "manager" && <SecurityOutlinedIcon />}
+            {role === "user" && <LockOpenOutlinedIcon />}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
+              {role}
             </Typography>
           </Box>
         );
       },
     },
     {
-      field: "age",
+      field: "status",
       headerName: "Status",
       type: "string",
       headerAlign: "left",
       align: "left",
     },
+    {
+      headerName: "Edit",
+      headerAlign: "left",
+      align: "left",
+      flex: 1,
+      renderCell: ({ row: { Edit } }) => {
+        return (          
+          <ModeEditOutlineRoundedIcon
+          color="secondary"
+          onClick={() => {
+            editUsers(mockDataTeam);
+          }}
+          sx={{ mr: 2, cursor: "pointer" }}
+        />
+        );
+     },
+    },
+
   ];
 
   return (

@@ -4,6 +4,7 @@ import { ColorModeContext, useMode } from "../../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Sidebar from "../../scenes/global/Sidebar";
 import { Box, Typography, useTheme } from "@mui/material";
+import { useAddUsersMutation } from '../../API/rtkQueryApi';
 
 
 function AddUserForms() {
@@ -27,10 +28,24 @@ function AddUserForms() {
       }))
   }
 
-  const onSubmitHandler = (event) => {
-    event.preventDefault()
-    console.log(formData)
+  // const onSubmitHandler = (event) => {
+  //   event.preventDefault()
+  //   console.log(formData)
+  // }
+ 
+  //  const [addUserForms] = useAddUsersMutation();
+   
+  const onSubmitHandler = async (data) =>{
+    const request={
+      id:Math.ceil(Math.random()*1000),
+      ...data
+    }
+    await useAddUsersMutation(request)
+    navigate("/team")
   }
+  
+
+
   return (
     <>
 <ColorModeContext.Provider value={colorMode}>
