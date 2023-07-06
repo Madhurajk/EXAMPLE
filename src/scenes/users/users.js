@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { ColorModeContext, useMode } from "../../theme";
 import { useState } from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import Sidebar from "../../scenes/global/Sidebar";
+import Sidebar from "../global/Sidebar";
 import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
 
 

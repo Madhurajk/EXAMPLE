@@ -1,9 +1,9 @@
 import React from 'react';
-import Team from "./scenes/team";
+import Team from "./scenes/users/users";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./scenes/dashboard";
-import Contacts from "./scenes/contacts";
-import Invoices from "./scenes/invoices";
+import Contacts from "./scenes/rooms/rooms";
+import Invoices from "./scenes/booking/booking";
 import Form from "./scenes/form";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";

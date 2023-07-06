@@ -1,5 +1,40 @@
 {
-    "addUserForm":[
-        
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "Admin",
+      "password": "admin123",
+      "email": "admin@gmail.com",
+      "role": "Admin",
+      "status": "Active"
+    },
+    {
+      "username": "Madhu",
+      "email": "madhu@gmail.com",
+      "role": "user",
+      "status": "Active",
+      "id": 2
+    },
+    {
+      "username": "Leo",
+      "email": "leo@gmail.com",
+      "password": "leo@123",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "username": "Leo1",
+      "email": "Leo1@gmail.com",
+      "role": "user",
+      "status": "Inactive",
+      "id": 4
+    },
+    {
+      "name": "mahu",
+      "email": "123@gmail.com",
+      "role": "admin",
+      "status": "active",
+      "id": 5
+    }
+  ]
 }

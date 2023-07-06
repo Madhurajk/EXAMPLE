@@ -3,29 +3,29 @@ import { useGetAllUsersQuery } from "../API/rtkQueryApi"
 
 
 
-export const mockDataTeam =(addUserForm)  => {
+// export const mockDataTeam =(addUserForm)  => {
 
-  // export const mockDataTeam = [
+  export const mockDataTeam = [
 
 
-const {data:getAllUsers,error,isLoading,isSuccess} = useGetAllUsersQuery();
+// const {data:getAllUsers,error,isLoading,isSuccess} = useGetAllUsersQuery();
 
-return(
-  {
-    id: {getAllUsers.id},
-    name: {getAllUsers.name},
-    email: {getAllUsers.email},
-    role: {getAllUsers.role},
-    status: {getAllUsers.status},
-  }
+// return(
+//   {
+//     id: {getAllUsers.id},
+//     name: {getAllUsers.name},
+//     email: {getAllUsers.email},
+//     role: {getAllUsers.role},
+//     status: {getAllUsers.status},
+//   }
 //   },
-  // {
-  //   id: 2,
-  //   name: "Manager",
-  //   email: "Manager@gmail.com",
-  //   status: "Active",
-  //   role: "manager",
-  // },
+  {
+    id: 2,
+    name: "Manager",
+    email: "Manager@gmail.com",
+    status: "Active",
+    role: "manager",
+  },
 //   {
 //     id: 3,
 //     name: "madhu",
@@ -42,9 +42,9 @@ return(
 //     phone: "1234567890",
 //     access: "user",
 //   }
-// ]
- )
-};
+ ]
+//  )
+// };
 
 
 export const mockDataContacts = [

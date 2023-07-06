@@ -1,118 +1,90 @@
-import React from 'react';
-import { Box, Button, TextField } from "@mui/material";
-import { Formik } from "formik";
-import * as yup from "yup";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { useNavigate } from "react-router-dom";
+import { useAddUsersMutation } from "../../API/rtkQueryApi";
+import { useState, useEffect } from "react";
 
 const AddUser = () => {
-  const isNonMobile = useMediaQuery("(min-width:600px)");
+    const navigate = useNavigate();
 
-  const handleFormSubmit = (values) => {
-    console.log(values);
-  };
-  const initialValues = {
-    Name: "",
-    email: "",
-    RegistationDateTime: "",
-    Role: "",
-    Status: ""
-  };
 
-  return (
-    <Box m="20px">
-      <Formik
-        onSubmit={handleFormSubmit}
-        initialValues={initialValues}
-        validationSchema={checkoutSchema}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleBlur,
-          handleChange,
-          handleSubmit,
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <Box
-              display="grid"
-              gap="30px"
-              gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-              sx={{
-                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-              }}
-            >
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.name}
-                name="Name"
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Email"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.email}
-                name="email"
-                error={!!touched.email && !!errors.email}
-                helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type='datetime-local'
-                label="Registation Date/Time"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                name="Registation Date/Time"
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Role"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address1}
-                name="Role"
-                sx={{ gridColumn: "span 4" }}
-              />
-              <label>Status :</label>
-                 <select id="status">
-                 <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                </select>
-                </Box>
-                <Box display="flex" justifyContent="end" mt="20px">
-                  <Button type="submit" color="secondary" variant="contained">
-                    Save
-                  </Button>
-                    </Box>
-                  <Box display="flex" justifyContent="end" mt="20px">
-                  <Button type="clear" color="secondary" variant="contained">
-                    Clear
-                  </Button>
-                </Box>            
-          </form>
-        )}
-      </Formik>
-    </Box>
-  );
-};
+    const [username, setUsername] = useState('');
 
-const checkoutSchema = yup.object().shape({
-  Name: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required")
-});
+    const [email, setEmail] = useState('');
+    const [role, setRole] = useState('');
+    const [status, setStatus] = useState('');
+    const [addusers, error, isLoading] = useAddUsersMutation();
+    const [successMessage, setSuccessMessage] = useState("");
 
+    useEffect(() => {
+        let timer;
+        if (successMessage) {
+          timer = setTimeout(() => {
+            setSuccessMessage("");
+          }, 1000);
+        }
+        return () => clearTimeout(timer);
+      }, [successMessage]);
+
+    const handleAddUser = (e) => {
+        e.preventDefault();
+        const newUser = {
+            username,
+            email,
+            role,
+            status
+        };
+        addusers(newUser).unwrap().then((res) => {
+            console.log("Users", res)
+            setSuccessMessage("User added successfully!");
+            window.location.reload();
+        })
+    }
+
+    return (
+        <div className="container-fluid">
+            <div className='row'>
+                <div className='col-auto col-md-3 col-xl-2 p-0'>
+                    {/* <Sidebar /> */}
+                </div>
+                <div className='col-auto col-md-9 col-xl-10 '>
+                {successMessage && <div className="mt-3 alert alert-success">{successMessage}</div>}
+                    <div className='fs-2 ms-3 font-weight-bold'>Add a User</div>
+                    <div className="card shadow rounded mt-5 p-4">
+                    <div className="row ">
+                        <div className="col-2 mb-4">
+                            <label className="fs-5">UserName</label>
+                        </div>
+                        <div className="col-10 mb-4">
+                            <input className="form-control form-control-lg" type="text" value={username} onChange={(e) => setUsername(e.target.value)}></input>
+                        </div>
+                        <div className="col-2 mb-4">
+                            <label className="fs-5">Email</label>
+                        </div>
+                        <div className="col-10  mb-4">
+                            <input className="form-control form-control-lg" type="email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                        </div>
+                        <div className="col-2 mb-4">
+                            <label className="fs-5">Role</label>
+                        </div>
+                        <div className="col-10 mb-4">
+                        <input className="form-control form-control-lg" type="text" value={role} onChange={(e) => setRole(e.target.value)}></input>
+                        </div>
+                        <div className="col-2 mb-4">
+                            <label className="fs-5">Status</label>
+                        </div>
+                        <div className="col-10 mb-4">
+                            <input className="form-control form-control-lg" type="text" value={status} onChange={(e) => setStatus(e.target.value)}></input>
+                        </div>
+                        <div className="col-2 "></div>
+                        <div className="col-10 mt-3 d-grid gap-2 d-md-flex">
+                            <button type="button" className="btn btn-primary btn-lg" onClick={handleAddUser}>Save</button>
+                            <button type="button" className="btn btn-dark btn-lg" onClick={()=>navigate("/users")}>Cancel</button>
+                        </div>
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    )
+}
 export default AddUser;

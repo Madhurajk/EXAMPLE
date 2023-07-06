@@ -8,7 +8,7 @@ import { useTheme } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import { ColorModeContext, useMode } from "../../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import Sidebar from "../../scenes/global/Sidebar";
+import Sidebar from "../global/Sidebar";
 import { useState } from 'react';
 
 const Contacts = () => {

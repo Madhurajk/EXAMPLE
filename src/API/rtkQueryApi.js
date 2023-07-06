@@ -4,32 +4,35 @@ export const rtkQueryApi = createApi({
     reducerPath:"rtkQueryApi",
     baseQuery:fetchBaseQuery({baseUrl:"http://localhost:3007/"}),
     endpoints:(builder)=> ({
-        getAllUsers:builder.query({
-            query:()=>"/addUserForm"
+        getUsers : builder.query({
+            query: () => "/users"
         }),
-        getUsersById:builder.query({
-            query:(id) => '/addUserForm/${id}'
-        }),
-
-        addUsers:builder.mutation({
-            query:(users)=>({
-                url:'/addUserForm',
-                method:'POST',
-                body:users
-            }),
-            editUsers:builder.mutation({
-                query:({id,...rest})=>({
-                    url:'/addUserForm/${id}',
-                    method:'PUT',
-                    body:rest
-                })
+        addUsers : builder.mutation({
+            query: (user) => ({
+                url: "/users",
+                method:"POST",
+                body: user
             })
-        })
+        }),
+        editUser : builder.mutation({
+            query: (user) => ({
+                url: `/users/${user.id}`,
+                method: 'PUT',
+                body: user
+            })
+        }),
+        deleteUser: builder.mutation({
+            query: (id) => ({
+                url: `/users/${id}`,
+                method: 'DELETE',
+            })
+        }),
+    
     })
 })
 
-export const { useGetAllUsersQuery,
-usegetUsersByIdQuery,
+export const { useGetUsersQuery,
 useAddUsersMutation,
-useEditUsersMutation
+useEditUserMutation,
+useDeleteUserMutation,
 } = rtkQueryApi

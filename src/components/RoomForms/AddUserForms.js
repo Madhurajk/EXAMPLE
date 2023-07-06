@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './AddUserForms.css';
 import { ColorModeContext, useMode } from "../../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -12,40 +12,72 @@ function AddUserForms() {
   const [theme1, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    registationDateTime: '',
-    status: '',
-    role: ['']
-  })
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   status: '',
+  //   role: '',
+  // })
 
-  const onChangeHandler = (event) => {
-    console.log(event)
-      setFormData(() => ({
-        ...formData,
-        [event.target.name]: event.target.value
-      }))
-  }
+  const [addusers, error, isLoading] = useAddUsersMutation();
+  const [successMessage, setSuccessMessage] = useState("");
+
+
+  useEffect(() => {
+    let timer;
+    if (successMessage) {
+      timer = setTimeout(() => {
+        setSuccessMessage("");
+      }, 1000);
+    }
+    return () => clearTimeout(timer);
+  }, [successMessage]);
+
+
+  // const onChangeHandler = (event) => {
+  //   console.log(event)
+  //     setFormData(() => ({
+  //       ...formData,
+  //       [event.target.name]: event.target.value
+  //     }))
+  // }
 
   // const onSubmitHandler = (event) => {
   //   event.preventDefault()
   //   console.log(formData)
+  //   setFormData(() => ({
+  //     ...formData,
+  //     [event.target.name]: event.target.value
+  //   }))
+  //   addusers(formData).unwrap().then((res) => {
+  //     console.log("Users", res)
+  //     setSuccessMessage("User added successfully!");
+  //     window.location.reload();
+  // })
+
   // }
+
+//   addusers(formData).unwrap().then((res) => {
+//     console.log("Users", res)
+//     setSuccessMessage("User added successfully!");
+//     window.location.reload();
+// })
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [role, setRole] = useState('');
+    const [status, setStatus] = useState('');
+
+const onSubmitHandler = (event) => {
+  event.preventDefault();
+  const newUser = {
+      name,email,role,status};
+  addusers(newUser).unwrap().then((res) => {
+      console.log("Users", res)
+      setSuccessMessage("User added successfully!");
+      window.location.reload();
+  })
+}
  
-  //  const [addUserForms] = useAddUsersMutation();
-   
-  const onSubmitHandler = async (data) =>{
-    const request={
-      id:Math.ceil(Math.random()*1000),
-      ...data
-    }
-    await useAddUsersMutation(request)
-    navigate("/team")
-  }
-  
-
-
   return (
     <>
 <ColorModeContext.Provider value={colorMode}>
@@ -61,46 +93,21 @@ function AddUserForms() {
       <form>
         <div className="form-group">
           <label htmlFor="Name" className="form-label">Name</label>
-          <input className="form-control" name="name" onChange={onChangeHandler} value={formData.name} />
+          <input className="form-control" name="name" value={name} onChange={(event) => setName(event.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="email" className="form-label">Email</label>
-          <input className="form-control" name="email" onChange={onChangeHandler} value={formData.email} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="DateTime" className="form-label">Registrati Date/Time</label>
-          <input className="form-control" type='date' onChange={onChangeHandler} value={formData.registationDateTime} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="role" className="form-label">Status</label>
-          <div>
-            <div>
-              <input type="radio" name="status" value="active" onChange={onChangeHandler} checked={formData.status === 'active'} />
-              <label htmlFor="male">Active</label>
-            </div>
-            <div>
-              <input type="radio" name="status" value="in-active" onChange={onChangeHandler} checked={formData.status === 'in-active'} />
-              <label htmlFor="female">InActive</label>
-            </div>
-          </div>
+          <input className="form-control" name="email" value={email} onChange={(event) => setEmail(event.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="role" className="form-label">Role</label>
-          <div>
-            <div>
-              <input type="checkbox" name="role" value="administration" onChange={onChangeHandler} checked={formData.role.indexOf('administration') !== -1} />
-              <label htmlFor="administration">Administration</label>
-            </div>
-            <div>
-              <input type="checkbox" name="role" value="manager" onChange={onChangeHandler} checked={formData.role.indexOf('manager') !== -1} />
-              <label htmlFor="manager">Manager</label>
-            </div>
-            <div>
-              <input type="checkbox" name="role" value="user" onChange={onChangeHandler} checked={formData.role.indexOf('user') !== -1} />
-              <label htmlFor="user">User</label>
-            </div>
-          </div>
+          <input className="form-control" name="role" value={role} onChange={(event) => setRole(event.target.value)} />
         </div>
+        <div className="form-group">
+          <label htmlFor="status" className="form-label">Status</label>
+          <input className="form-control" name="status" value={status} onChange={(event) => setStatus(event.target.value)} />
+        </div>
+     
         <div className="form-group">
           <button className="btn" onClick={onSubmitHandler} >Save</button> 
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
