@@ -1,42 +1,45 @@
-import { useAddbookingMutation } from "../../API/rtkQueryApi";
+import { useAddbookingMutation, useEditbookingMutation } from "../../API/rtkQueryApi";
 import { useState , useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { ColorModeContext, useMode } from "../../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Sidebar from "../../scenes/global/Sidebar";
 import { Box, Typography, useTheme } from "@mui/material";
 import "./DateRoom.css"
 
-const DateRoom = () => {
+const EditDateBookingRoom = () => {
   const [theme1, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
     const navigate = useNavigate();
-    const [title, setTitle] = useState('');
-    const [date, setDate] = useState('');
-    const [capacity, setCapacity] = useState('');
-    const [total, setTotal] = useState('');
-    const [bookfor, setBookFor] = useState('');
-    const [priceperday, setPricePerDay] = useState('');
-    const [status, setStatus] = useState('');
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [company, setCompany] = useState('');
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [zip, setZip] = useState('');
-    const [country, setCountry] = useState('');
-    const [addbooking, error, isLoading] = useAddbookingMutation()
+    const location = useLocation();
+    const { booking } = location.state;
+    const [title, setTitle] = useState(booking?.title);
+    const [date, setDate] = useState(booking?.date);
+    const [capacity, setCapacity] = useState(booking?.capacity);
+    const [total, setTotal] = useState(booking?.total);
+    const [bookfor, setBookFor] = useState(booking?.bookfor);
+    const [priceperday, setPricePerDay] = useState(booking?.priceperday);
+    const [status, setStatus] = useState(booking?.status);
+    const [name, setName] = useState(booking?.users[0]?.name);
+    const [email, setEmail] = useState(booking?.users[0]?.email);
+    const [phone, setPhone] = useState(booking?.users[0]?.phone);
+    const [company, setCompany] = useState(booking?.users[0]?.company);
+    const [address, setAddress] = useState(booking?.users[0]?.address);
+    const [city, setCity] = useState(booking?.users[0]?.city);
+    const [state, setState] = useState(booking?.users[0]?.state);
+    const [zip, setZip] = useState(booking?.users[0]?.zip);
+    const [country, setCountry] = useState(booking?.users[0]?.country);
+    const [editbooking, { isLoading }] = useEditbookingMutation();
     const [step, setStep] = useState(1);
+    const [successMessage, setSuccessMessage] = useState("");
 
-    const handleSubmitAddBooking = (e) => {
+
+    const handleSubmitEditBooking = (e) => {
         e.preventDefault();
-        const newBooking = {
-            title,date,capacity,total,bookfor,priceperday,status,
-           users:[{name, phone, email,address, company, city, state, country, zip}]
-        };
-        addbooking(newBooking).unwrap().then((res) => {
+        const updatedBooking= { ...booking, title, date, capacity, total, bookfor, priceperday, status,
+            users:[{name, phone, email,address, company, city, state, country, zip}]};
+        editbooking(updatedBooking).unwrap().then((response) => {
+            setSuccessMessage("Booking updated successfully!");
             window.location.reload();
         })
     }
@@ -193,7 +196,7 @@ const DateRoom = () => {
                                     <div className="col-2 "></div>
                                     <br /> <br />
                             <div className="col-10 mt-3 d-grid gap-2 d-md-flex">
-                                <button type="button" className="btn btn-primary btn-lg" onClick={handleSubmitAddBooking}>Save</button>
+                                <button type="button" className="btn btn-primary btn-lg" onClick={handleSubmitEditBooking}>Update</button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <button type="button" className="btn btn-dark btn-lg" value="Cancel">Cancel</button>
                             </div>
@@ -214,4 +217,4 @@ const DateRoom = () => {
     )
 }
 
-export default DateRoom;
+export default EditDateBookingRoom;

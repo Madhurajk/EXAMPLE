@@ -29,7 +29,6 @@ const onSubmitHandler = (event) => {
     event.preventDefault();
     const updatedRoom = { ...room, title, capacity, description, bookfor, priceperday, status };
     editroom(updatedRoom).unwrap().then((response) => {
-        setSuccessMessage("Room updated successfully!");
         window.location.reload();
     })
 

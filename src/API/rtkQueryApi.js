@@ -50,6 +50,32 @@ export const rtkQueryApi = createApi({
                 method: 'DELETE',
             })
         }),
+        bookings: builder.query({
+            query: () => "/bookings"
+        }),
+        addbooking: builder.mutation({
+            query: (booking) => ({
+                url: "/bookings",
+                method: "POST",
+                body: booking,
+            })
+        }),
+        editbooking: builder.mutation({
+            query: (booking) => ({
+                url: `/bookings/${booking.id}`,
+                method: 'PUT',
+                body: booking
+            })
+        }),
+        deleteBooking: builder.mutation({
+            query: (id) => ({
+                url: `/bookings/${id}`,
+                method: 'DELETE',
+            })
+        }),
+        getroombookings: builder.query ({
+            query:() => "/userBookings"
+        })
     
     })
 })
@@ -62,4 +88,9 @@ useRoomsQuery,
 useAddRoomsMutation,
 useEditRoomMutation,
 useDeleteRoomMutation,
+useBookingsQuery,
+useAddbookingMutation,
+useEditbookingMutation,
+useDeleteBookingMutation,
+useGetroombookingsQuery,
 } = rtkQueryApi

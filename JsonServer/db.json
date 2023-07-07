@@ -23,28 +23,21 @@
       "role": "Admin",
       "status": "InActive",
       "id": 5
-    },
-    {
-      "name": "Leo123",
-      "email": "123@gmail.com",
-      "role": "user",
-      "status": "Active",
-      "id": 6
     }
   ],
   "rooms": [
     {
       "id": 2,
-      "title": "Small Conference Room",
+      "title": "Medium Conference Room",
       "capacity": "19",
       "status": "Active",
       "startTime": "2023-06-30T10:00:00",
       "endTime": "2023-06-30T11:00:00",
-      "description": "It is a large conference room. The capacity of this room is for 40 people",
+      "description": "It is a large conference room.",
       "bookfor": [
         "Multiple-days",
         "Half-day",
-        "hour"
+        "halfday"
       ],
       "priceperday": "1500"
     },
@@ -55,11 +48,143 @@
       "status": "InActive",
       "startTime": "2023-06-30T10:00:00",
       "endTime": "2023-06-30T11:00:00",
-      "description": "Panoramic room capacity of this room is for 20 people",
+      "description": "",
       "bookfor": [
         "hour"
       ],
       "priceperday": "5000"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "title": "Large Conference room",
+      "capacity": "10",
+      "status": "Confirmed",
+      "total": "$40",
+      "date": "2023-07-05",
+      "priceperday": "100",
+      "bookfor": "halfday",
+      "users": [
+        {
+          "name": "Leo",
+          "phone": "1234567890",
+          "email": "Leo@example.com",
+          "address": "Banshankari",
+          "company": "Lucida Technology Pvt Ltd",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "zip": "500072"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Small Conference room",
+      "capacity": "22",
+      "status": "Pending",
+      "total": "$123.11",
+      "date": "2023-07-05",
+      "priceperday": "1000",
+      "bookfor": "Multiple Days",
+      "users": [
+        {
+          "name": "Madhu",
+          "phone": "9123456780",
+          "email": "madhu@example.com",
+          "address": "Banshankari",
+          "company": "Lucida Tech",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "zip": "500072"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Small Conference Room",
+      "capacity": "20",
+      "status": "Cancelled",
+      "total": "$450",
+      "date": "2023-07-22",
+      "priceperday": "500",
+      "bookfor": "hour",
+      "users": [
+        {
+          "name": "MMM",
+          "phone": "1234509876",
+          "email": "mmm@example.com",
+          "address": "Banshankari",
+          "company": "Lucida",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "zip": "500072"
+        }
+      ]
+    }
+  ],
+  "userBookings": [
+    {
+      "id": 1,
+      "roomName": "Small Conference Room",
+      "capacity": "12 People",
+      "price": [
+        "69.00 per hour",
+        "250 half day"
+      ],
+      "image": "/assets/images/small.jpg",
+      "description": [
+        "This workspace gives business and mobile travellers privacy to work undistrubed",
+        " Confortable, Private workspace",
+        " Super fast wi-fi",
+        " Catch up on emails",
+        " Printer supplied",
+        "Print of a forgotten document",
+        "Make a call in peace and quite",
+        "Power station to recharge laptop",
+        "For wheelchair users, alternate facilities available."
+      ]
+    },
+    {
+      "id": 2,
+      "roomName": "Large Conference Room",
+      "capacity": "40 People",
+      "price": [
+        "200.00 per hour",
+        "1000 per day"
+      ],
+      "image": "/assets/images/large.jpg",
+      "description": [
+        "This workspace gives business and mobile travellers privacy to work undistrubed",
+        " Confortable, Private workspace",
+        " Super fast wi-fi",
+        " Catch up on emails",
+        " Printer supplied",
+        "Print of a forgotten document",
+        "Make a call in peace and quite",
+        "Power station to recharge laptop",
+        "For wheelchair users, alternate facilities available."
+      ]
+    },
+    {
+      "id": 3,
+      "roomName": "Panoramic  Room",
+      "capacity": "20 People",
+      "price": [
+        "160.00 per hour",
+        "850 per day"
+      ],
+      "image": "/assets/images/panoramic.jpg",
+      "description": [
+        "Situated in an instantly recognized address. a short walk from Westminstethese service offices are imposing. Accessable from Charing Cross Station, they are perfect for business needing access. Break out areas  to brainstrom ideas. Major transport links making it perfect if you travel.",
+        "Width: 7.85mm",
+        "Length: 6.9m",
+        "Height: 3.25m",
+        "Total floor space: 76m"
+      ]
     }
   ]
 }
