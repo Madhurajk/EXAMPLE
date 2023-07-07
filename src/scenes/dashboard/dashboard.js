@@ -10,7 +10,7 @@ import Header from "../../components/Header";
 import { ColorModeContext, useMode } from "../../theme";
 import { useState } from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import Sidebar from "../../scenes/global/Sidebar";
+import Sidebar from "../global/Sidebar";
 import QuickLinks from "../../components/QuickLinks"
 import Reservations from "../../components/Reservations"
 import LatestBookings from "../../components/LatestBookings"

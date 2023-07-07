@@ -19,6 +19,7 @@ if (bookings) {
           bookingDate.getFullYear() === new Date().getFullYear()
       );
   }).length;
+  totalBookings = bookings.length;
 }
 
 

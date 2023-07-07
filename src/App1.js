@@ -1,7 +1,7 @@
 import React from 'react';
 import Team from "./scenes/users/users";
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "./scenes/dashboard";
+import Dashboard from "./scenes/dashboard/dashboard";
 import Contacts from "./scenes/rooms/rooms";
 import Invoices from "./scenes/booking/booking";
 import Form from "./scenes/form";

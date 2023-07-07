@@ -19,6 +19,7 @@ if (bookings) {
           bookingDate.getFullYear() === new Date().getFullYear()
       );
   }).length;
+  bookingsForToday = bookings.filter((booking) => booking.date === currentDate).length;
 }
 
 return (
