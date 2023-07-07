@@ -1,27 +1,32 @@
-import {useEffect, useState} from 'react';
+import { useBookingsQuery } from '../API/rtkQueryApi';
+
 
 const Random3 = () => {
-  const [num, setNum] = useState(0);
+  let bookingsMadeToday = 0;
+  let bookingsForToday = 0;
+let totalBookings = 0;
 
-  function randomNumberInRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+const { data: bookings, error } = useBookingsQuery();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setNum(randomNumberInRange(1, 100));
-    }, 5000); // 👈️ runs every 1 second
+if (bookings) {
+  const currentDate = new Date().toISOString().split('T')[0];
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  bookingsMadeToday = bookings.filter((booking) => {
+      const bookingDate = new Date(booking.date);
+      return (
+          bookingDate.getDate() === new Date().getDate() &&
+          bookingDate.getMonth() === new Date().getMonth() &&
+          bookingDate.getFullYear() === new Date().getFullYear()
+      );
+  }).length;
+}
 
-  return (
-    <div>
-      <h1>Total bookings made :  {num}</h1>
-    </div>
-  );
-};
 
+return (
+  <div>
+  <i style={{ "fontSize": "3rem" }}></i><span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>  total bookings made : {totalBookings}</span>
+</div>
+);
+ 
+}
 export default Random3;

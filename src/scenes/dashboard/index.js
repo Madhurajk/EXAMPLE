@@ -30,21 +30,7 @@ const Dashboard = () => {
 
   const todayBookings = 10; // Replace with actual data
   const totalBookings = 100; // Replace with actual data
-  const latestBookings = [
-    {
-      meetingRoom: 'Room A',
-      date: '2023-06-30',
-      customerName: 'Madhu',
-      customerId: '123',
-    },
-    {
-      meetingRoom: 'Room B',
-      date: '2023-07-30',
-      customerName: 'Leo',
-      customerId: '124',
-    }
-    // Add more bookings
-  ];
+ 
 
   return (
     <>
@@ -131,24 +117,24 @@ const Dashboard = () => {
         </Box>
         <Box
           gridColumn="span 4"
-          gridRow="span 2"
+          gridRow="span 3"
           backgroundColor={colors.greenAccent[100]}
           padding="30px"
         >
           <Typography
-            variant="h9"
+            variant="h10"
             fontWeight="600"
-            sx={{ marginBottom: "15px" }}
+            sx={{ marginBottom: "100px" }}
           >
           </Typography>
           <Box height="240px">
-            <LatestBookings bookings={latestBookings} />
+            <LatestBookings />
             </Box>
         </Box>
 
         <Box
           gridColumn="span 4"
-          gridRow="span 2"
+          gridRow="span 3"
           backgroundColor={colors.greenAccent[100]}
         >
           <Typography
@@ -163,7 +149,7 @@ const Dashboard = () => {
         </Box>
         <Box
           gridColumn="span 4"
-          gridRow="span 2"
+          gridRow="span 3"
           backgroundColor={colors.greenAccent[100]}
           padding="30px"
         >
@@ -193,15 +179,15 @@ const Dashboard = () => {
             </Box>
         </Box>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridColumn="span 1"
+          gridRow="span 1"
           backgroundColor={colors.greenAccent[50]}
-          padding="30px"
+          padding="10px"
         >
           <Typography
             variant="h9"
             fontWeight="600"
-            sx={{ marginBottom: "15px" }}
+            sx={{ marginBottom: "11px" }}
           >
           </Typography>
           <Box height="240px">

@@ -1,25 +1,48 @@
 import React, { useState } from 'react';
-import DatePicker from '../Date/DatePicker';
+import { useBookingsQuery } from '../API/rtkQueryApi';
 
 const Reservations = () => {
+
+  const { data: bookings, error } = useBookingsQuery();
   const [selectedDate, setSelectedDate] = useState('');
 
+  let latestBookings = [];
+  const filteredBookings = bookings?.filter((booking) => booking.date === selectedDate);
+  
   const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
+    const selectedDate = event.target.value;
+    setSelectedDate(selectedDate);
   };
 
-  const handlePrint = () => {
-    // Logic for printing reservations for the selected date
-  };
-
+  const formatDate = (dateString) => {
+    const parts = dateString.split('-');
+    const year = parts[0];
+    const month = parts[1].padStart(2, '0');
+    const day = parts[2].padStart(2, '0');
+    return `${year}-${month}-${day}`;
+};
   return (
+    <>
+    <label><h3>Date : </h3></label>
     <div>
-      <h2>Reservations</h2>
-      <p>Small Conference Room</p>
-      <DatePicker />
-      <button onClick={handlePrint}>Print</button>
-      {/* Display bookings for the selected date */}
+        <input className="form-control" type="date" value={selectedDate ? formatDate(selectedDate) : ""} onChange={handleDateChange} ></input>
     </div>
+{selectedDate && filteredBookings.length > 0 ? (
+    <div>
+        {filteredBookings.map((booking) => (
+            <div key={booking.id} className='ms-4 me-4'>
+                <p className='mb-0'>{booking.title}</p>
+                <p className='mb-0'>{booking.bookfor}</p>
+                <p key={booking.id} style={{ color: "brown", fontSize: "1rem", fontWeight: "bold" }}>{booking.users[0].name}</p>
+                <hr></hr>
+            </div>
+        ))}
+    </div>
+) : (
+    <p>No bookings....!</p>
+)}
+</>
+
   );
 };
 
