@@ -14,6 +14,8 @@ import MeetingRoom from './components/MeetingRoom/MeetingRoom';
 import EditUserForms from './components/RoomForms/EditUserForm';
 import EditMeetingRoom from './components/MeetingRoom/EditMeetingRoom';
 import EditDateBookingRoom from './components/Booking/EditDateBookingRoom';
+import UserBookRoom from './userMadule/bookRoom/UserBookRoom';
+import UserDashboard from './userMadule/userDashboard/UserDashboard';
 
 function App1() {
   return (
@@ -32,7 +34,8 @@ function App1() {
                 <Route path="/editUserForms/:id" element={<EditUserForms />}></Route>
                 <Route path="/editmeetingroom/:id" element={<EditMeetingRoom />}></Route>
                 <Route path="/editdatebookingroom/:id" element={<EditDateBookingRoom />}></Route>
-
+                <Route path="/bookroom/:id" element={<UserBookRoom />}></Route>
+                <Route path="/user-dashboard" element={<UserDashboard />}></Route>
 
                </Routes>
     </UserContextProvider>

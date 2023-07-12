@@ -28,8 +28,6 @@ const Dashboard = () => {
   const currDate = new Date().toLocaleDateString();
  const currTime = new Date().toLocaleTimeString();
 
-  const todayBookings = 10; // Replace with actual data
-  const totalBookings = 100; // Replace with actual data
  
 
   return (

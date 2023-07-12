@@ -10,12 +10,12 @@
     },
     {
       "username": "Leo",
-      "email": "leo@gmail.com",
+      "email": "leooo@gmail.com",
       "password": "leo@123",
       "role": "user",
       "id": 3,
       "status": "Active",
-      "name": "madhu"
+      "name": "leooo"
     },
     {
       "name": "Virat",
@@ -123,6 +123,90 @@
           "country": "India",
           "zip": "500072"
         }
+      ]
+    },
+    {
+      "title": "Small Conference Room",
+      "date": "2023-07-01",
+      "capacity": "8 People",
+      "total": "89.00 per hour",
+      "bookfor": "Half day",
+      "priceperday": "89.00 per hour",
+      "status": "Active",
+      "users": [
+        {
+          "name": "Madhu",
+          "phone": "1234567890",
+          "email": "Madhu@gmail.com",
+          "address": "Banasankari",
+          "company": "Lucida",
+          "city": "Banaglore",
+          "state": "Karnataka",
+          "country": "India",
+          "zip": "571234"
+        }
+      ],
+      "id": 4
+    }
+  ],
+  "userBookings": [
+    {
+      "id": 1,
+      "roomName": "Small Conference Room",
+      "capacity": "8 People",
+      "price": [
+        "89.00 per hour",
+        "2000 half day"
+      ],
+      "image": "/small.jpg",
+      "description": [
+        "This workspace gives business and mobile travellers privacy to work undistrubed",
+        " Confortable, Private workspace",
+        " Super fast wi-fi",
+        " Catch up on emails",
+        " Printer supplied",
+        "Print of a forgotten document",
+        "Make a call in peace and quite",
+        "Power station to recharge laptop",
+        "For wheelchair users, alternate facilities available."
+      ]
+    },
+    {
+      "id": 2,
+      "roomName": "Large Conference Room",
+      "capacity": "30 People",
+      "price": [
+        "150.00 per hour",
+        "10000 per day"
+      ],
+      "image": "/large.jpg",
+      "description": [
+        "This workspace gives business and mobile travellers privacy to work undistrubed",
+        " Confortable, Private workspace",
+        " Super fast wi-fi",
+        " Catch up on emails",
+        " Printer supplied",
+        "Print of a forgotten document",
+        "Make a call in peace and quite",
+        "Power station to recharge laptop",
+        "For wheelchair users, alternate facilities available."
+      ]
+    },
+    {
+      "id": 3,
+      "roomName": "Panoramic  Room",
+      "capacity": "15 People",
+      "price": [
+        "180.00 per hour",
+        "700 per day"
+      ],
+      "image": "/medium.jpg",
+      "description": [
+        "Situated in an instantly recognized address. a short walk from Westminstethese service offices are imposing. Accessable from Charing Cross Station, they are perfect for business needing access. Break out areas  to brainstrom ideas. Major transport links making it perfect if you travel.",
+        "Width: 7.85mm",
+        "Length: 6.9m",
+        "Height: 3.25m",
+        "Total floor space: 76m"
       ]
     }
   ]

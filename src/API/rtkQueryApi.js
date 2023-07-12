@@ -73,7 +73,7 @@ export const rtkQueryApi = createApi({
                 method: 'DELETE',
             })
         }),
-        getroombookings: builder.query ({
+        getRoomBookings: builder.query ({
             query:() => "/userBookings"
         })
     
@@ -92,5 +92,5 @@ useBookingsQuery,
 useAddbookingMutation,
 useEditbookingMutation,
 useDeleteBookingMutation,
-useGetroombookingsQuery,
+useGetRoomBookingsQuery,
 } = rtkQueryApi
