@@ -61,7 +61,7 @@ const UserBookRoom = () => {
         };
         addbooking(newBooking).unwrap().then((res) => {
             setSuccessMessage("Booking added successfully..!");
-            navigate("/user-dashboard")
+            navigate("/usersDashboard")
             window.location.reload();
         })
     }
@@ -200,7 +200,7 @@ const UserBookRoom = () => {
                             <div className="col-10 mt-3 d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button type="button" className="btn btn-primary btn-lg" onClick={handleAddBooking}>Save</button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button type="button" className="btn btn-dark btn-lg" onClick={() => navigate("/user-dashboard")}>Cancel</button>
+                                <button type="button" className="btn btn-dark btn-lg" onClick={() => navigate("/usersDashboard")}>Cancel</button>
                             </div>
                         </div>
                     </>

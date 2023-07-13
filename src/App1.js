@@ -35,7 +35,7 @@ function App1() {
                 <Route path="/editmeetingroom/:id" element={<EditMeetingRoom />}></Route>
                 <Route path="/editdatebookingroom/:id" element={<EditDateBookingRoom />}></Route>
                 <Route path="/bookroom/:id" element={<UserBookRoom />}></Route>
-                <Route path="/user-dashboard" element={<UserDashboard />}></Route>
+                <Route path="/usersDashboard" element={<UserDashboard />}></Route>
 
                </Routes>
     </UserContextProvider>

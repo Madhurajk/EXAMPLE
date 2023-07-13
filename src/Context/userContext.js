@@ -34,7 +34,7 @@ export const UserContextProvider = (props) => {
       navigate("/dashboard");
     } else {
       setError(true);
-      navigate("/user-dashboard");
+      navigate("/usersDashboard");
     }
   };
 
