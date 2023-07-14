@@ -49,7 +49,7 @@ const EditDateBookingRoom = () => {
     return (
       <>
       <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme1}>
+      {/* <ThemeProvider theme={theme1}> */}
         <CssBaseline />
         <div className="app">
           <main className="content" style={{ display: "flex" }}>
@@ -210,7 +210,7 @@ const EditDateBookingRoom = () => {
             </Box>
           </main>
         </div>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </ColorModeContext.Provider>
 
     </>

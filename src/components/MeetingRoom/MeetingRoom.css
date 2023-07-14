@@ -1,8 +1,10 @@
 .MeetingRoom {
     margin: 3%;
-    padding: 3% 400px;
+    padding: 3% 100px;
     font-size: small;
-    background-color: #07070763;
+    font-weight: bold;
+
+    /* background-color: #07070763; */
     /* text-align: center; */
   }
 

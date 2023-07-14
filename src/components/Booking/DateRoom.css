@@ -1,7 +1,9 @@
 .DateRoom {
     margin: 3%;
-    padding: 3% 400px;
+    padding: 3% 100px;
     font-size: small;
+    font-weight: bold;
+
     /* background-color: #e2e3dfe8; */
     /* text-align: center; */
   }

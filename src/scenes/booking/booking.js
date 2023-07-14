@@ -68,7 +68,7 @@ const [theme1, colorMode] = useMode();
   
   return (
 <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme1}>
+      {/* <ThemeProvider theme={theme1}> */}
         <CssBaseline />
         <div className="app">
           <main className="content" style={{ display: "flex" }}>
@@ -81,12 +81,12 @@ const [theme1, colorMode] = useMode();
         m="40px 0 0 0"
         height="75vh"
       >
-        <button type="button" className='btn btn-primary' onClick= {userFormHandler1}><i className='fa fa-plus'></i>  + Add Room</button>
+        <button type="button" className='btn btn-primary' onClick= {userFormHandler1}><i className='fa fa-plus'></i>  + Add Booking</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <Box display="flex" justifyContent="space-between" p={2}>
       <Box
         display="flex"
-        backgroundColor={colors.greenAccent[300]}
+        backgroundColor={colors.greenAccent[700]}
         borderRadius="3px"
       >
         <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" value={searchBooking}
@@ -121,23 +121,25 @@ const [theme1, colorMode] = useMode();
                     
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      <button
                             type="button"
                             className={`rounded ${selectedStatus === 'All' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('All')}> All
-                        </button>
+                        </button>&emsp;&emsp;
                         <button
                             type="button"
                             className={`rounded ${selectedStatus === 'Pending' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('Pending')}>
                             Pending
-                        </button>
+                        </button>&emsp;&emsp;
                         <button
                             type="button"
                             className={`rounded ${selectedStatus === 'Confirmed' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('Confirmed')}>
                             Confirmed
-                        </button>
+                        </button>&emsp;&emsp;
                         <button
                             type="button"
                             className={`rounded ${selectedStatus === 'Cancelled' ? 'active' : ''}`}
@@ -145,7 +147,7 @@ const [theme1, colorMode] = useMode();
                             Cancelled
                         </button>
                     </div>
-
+<br />
                   <div className='card shadow bg-body rounded mt-5 p-3'>
                         {filteredBookings?.length === 0 ? (
                             <div>No data found.</div>
@@ -196,7 +198,7 @@ const [theme1, colorMode] = useMode();
     </Box>
           </main>
         </div>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </ColorModeContext.Provider>
   );
 };

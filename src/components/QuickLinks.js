@@ -6,12 +6,12 @@ const QuickLinks = () => {
   return (
     <div>
       <h2>Quick Links</h2>
-    <p><Link style={{textDecoration: 'none', color:'white'}} to="/dateroom">+Add Booking</Link></p>
-    <p><Link style={{textDecoration: 'none', color:'white'}} to="/meetingroom">+Add Room</Link></p>
+    <p><Link style={{textDecoration: 'none'}} to="/dateroom">+Add Booking</Link></p>
+    <p><Link style={{textDecoration: 'none'}} to="/meetingroom">+Add Room</Link></p>
     <br />
-    <p><Link style={{textDecoration: 'none', color:'white'}} to="/invoices">View Booking</Link></p>
-    <p><Link style={{textDecoration: 'none', color:'white'}} to="/contacts">View Rooms</Link></p>
-    <p><Link style={{textDecoration: 'none', color:'white'}} to="/dateroom">Edit Booking Form</Link></p>
+    <p><Link style={{textDecoration: 'none'}} to="/invoices">View Booking</Link></p>
+    <p><Link style={{textDecoration: 'none'}} to="/contacts">View Rooms</Link></p>
+    <p><Link style={{textDecoration: 'none'}} to="/dateroom">Edit Booking Form</Link></p>
     </div>
   );
 };

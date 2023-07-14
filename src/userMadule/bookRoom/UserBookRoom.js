@@ -13,6 +13,7 @@ const UserBookRoom = () => {
     const [attendees, setAttendees] = useState('');
     const [timeSlots, setTimeSlots] = useState([]);
     const [title, setTitle] = useState('');
+
     const [capacity, setCapacity] = useState('');
     const [total, setTotal] = useState('');
     const [bookfor, setBookFor] = useState('');
@@ -140,7 +141,7 @@ const UserBookRoom = () => {
                                 <div className="col-2 "></div>
                                 <br /> 
                                 <div className="col-10 mt-3 d-grid gap-2 d-md-flex">
-                                    <button type="button" className="btn btn-dark btn-lg" onClick={() => navigate("/user-dashboard")}>Back</button>
+                                    <button type="button" className="btn btn-dark btn-lg" onClick={() => navigate("/usersDashboard")}>Back</button>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button type="button" className="btn btn-primary btn-lg ms-5" onClick={handleNextClick} >Next</button>
                                 </div>

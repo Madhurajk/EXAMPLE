@@ -1,8 +1,10 @@
 .addUser {
     margin: 3%;
-    padding: 3% 400px;
+    padding: 3% 100px;
     font-size: small;
-    background-color: #51750363;
+    font-weight: bold;
+
+    /* background-color: #51750363; */
     /* text-align: center; */
   }
 

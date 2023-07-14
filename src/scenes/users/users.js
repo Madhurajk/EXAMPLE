@@ -71,7 +71,7 @@ const handleDelete = (userId) => {
 
   return (
 <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme1}>
+      {/* <ThemeProvider theme={theme1}> */}
         <CssBaseline />
         <div className="app">
           <main className="content" style={{ display: "flex" }}>
@@ -89,7 +89,7 @@ const handleDelete = (userId) => {
          {successMessage && <div>{successMessage}</div>}
                     <div>
                         <button type="button"  className='btn btn-primary' onClick={userFormHandler}><i className='fa fa-plus' ></i> +Add Users</button>
-                        <br /><br /><br />
+                        <br /><br />
                         <Box>
                         <input className="search ms-5 p-2 rounded"
                             type="text"
@@ -101,20 +101,23 @@ const handleDelete = (userId) => {
                     </div>
                     <Box
                     m="20px 0 0 0"
-                    height="3vh"
-                    display="flex"  alignItems="center"
+                    height="4vh"
+                    display="-ms-grid"  
+                    alignItems="flex-start"
                     >
                     <button
                             type="button"
                             className={`rounded ${selectedStatus === 'All' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('All')}> All
                         </button>
+                        &nbsp; &nbsp; &nbsp; 
                         <button
                             type="button"
                             className={`rounded ${selectedStatus === 'Active' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('Active')}>
                             Active
                         </button>
+                        &nbsp; &nbsp; &nbsp; 
                         <button
                             type="button"
                             className={`rounded ${selectedStatus === 'InActive' ? 'active' : ''}`}
@@ -122,7 +125,7 @@ const handleDelete = (userId) => {
                                 InActive
                         </button>  
                         </Box>
-
+<br />
                     <div>
                         {filteredUsers?.length === 0 ? (
                             <div>No data found.</div>
@@ -166,7 +169,7 @@ const handleDelete = (userId) => {
     </Box>
           </main>
         </div>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </ColorModeContext.Provider>
 
   );

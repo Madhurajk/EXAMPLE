@@ -12,6 +12,10 @@ import { useState,useEffect } from 'react';
 import { useDeleteRoomMutation, useRoomsQuery } from '../../API/rtkQueryApi';
 import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
 import { DeleteForever } from '@mui/icons-material';
+import InputBase from "@mui/material/InputBase";
+import { IconButton} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+
 
 
 const Contacts = () => {
@@ -60,7 +64,7 @@ const Contacts = () => {
 
   return (
 <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme1}>
+      {/* <ThemeProvider theme={theme1}> */}
         <CssBaseline />
         <div className="app">
           <main className="content" style={{ display: "flex" }}>
@@ -84,15 +88,20 @@ const Contacts = () => {
              <div className='d-flex flex-row p-2 mt-5'>
                         <button type="button" className='btn btn-primary' onClick= {userFormHandler}><i className='fa fa-plus'></i>  + Add Room</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input className="search ms-5 p-2 rounded"
-                            type="text"
-                            value={searchRoom}
-                            onChange={handleSearch}
-                            placeholder="Search"
-                        />
-                    </div>
-                    <br /><br />
-
+                        <Box display="flex" justifyContent="space-between" p={2}>
+                          <Box
+        display="flex"
+        backgroundColor={colors.greenAccent[700]}
+        borderRadius="1px"
+      >
+        <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search" value={searchRoom}
+                            onChange={handleSearch}/>
+        <IconButton type="button" sx={{ p: 1 }}>
+          <SearchIcon />
+        </IconButton>
+      </Box>
+      </Box>
+              </div>
                     <div className='card shadow bg-body rounded mt-5 p-3'>
                         {filteredRooms?.length === 0 ? (
                             <div>No data found.</div>
@@ -135,7 +144,7 @@ const Contacts = () => {
      </Box>
           </main>
         </div>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </ColorModeContext.Provider>
   );
 };

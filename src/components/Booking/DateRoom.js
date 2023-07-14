@@ -46,7 +46,7 @@ const DateRoom = () => {
     return (
       <>
       <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme1}>
+      {/* <ThemeProvider theme={theme1}> */}
         <CssBaseline />
         <div className="app">
           <main className="content" style={{ display: "flex" }}>
@@ -58,7 +58,7 @@ const DateRoom = () => {
                 <div className='col-auto col-md-3 col-xl-2 p-0'>
                 </div>
                 <div className='col-auto col-md-9 col-xl-10 '>
-                    <div className='fs-2 ms-3 font-weight-bold'><h1>Add a Booking</h1></div>
+                    <div className='fs-2 ms-3 font-weight-bold'><h1>Add a booking</h1></div>
                     <div className="card shadow rounded ms-3 p-4 mt-4">
                             {step === 1 && (
                                 <div className="row ">
@@ -135,7 +135,8 @@ const DateRoom = () => {
                             )}
                             {step === 2 && (
                                 <div className="row">
-                                    <div className='fs-4 mb-5' style={{ "font-weight": "bolder" }}><h3>Client Details</h3></div>
+                                    <br />
+                                    <div className='fs-4 mb-5' style={{ "font-weight": "bolder" }}><h2>Client Details</h2></div>
                                     <div className="col-2 mb-4">
                                         <label className="fs-5">Name</label>
                                     </div>
@@ -207,7 +208,7 @@ const DateRoom = () => {
             </Box>
           </main>
         </div>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </ColorModeContext.Provider>
 
     </>

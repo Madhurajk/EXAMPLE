@@ -10,16 +10,16 @@
     },
     {
       "username": "Leo",
-      "email": "leooo@gmail.com",
+      "email": "madhu@gmail.com",
       "password": "leo@123",
       "role": "user",
       "id": 3,
       "status": "Active",
-      "name": "leooo"
+      "name": "madhu"
     },
     {
-      "name": "Virat",
-      "email": "Virat@gmail.com",
+      "name": "MMM",
+      "email": "mmm@gmail.com",
       "role": "Admin",
       "status": "InActive",
       "id": 5
@@ -53,6 +53,17 @@
         "hour"
       ],
       "priceperday": "5000"
+    },
+    {
+      "title": "Panoramic Room",
+      "capacity": 12,
+      "description": "",
+      "bookfor": [
+        "halfday"
+      ],
+      "priceperday": "100",
+      "status": "Active",
+      "id": 4
     }
   ],
   "bookings": [
@@ -126,7 +137,7 @@
       ]
     },
     {
-      "title": "Small Conference Room",
+      "title": "Panoramic room",
       "date": "2023-07-01",
       "capacity": "8 People",
       "total": "89.00 per hour",
@@ -147,6 +158,29 @@
         }
       ],
       "id": 4
+    },
+    {
+      "title": "Large Conference Room",
+      "date": "2023-07-13",
+      "capacity": "30 People",
+      "total": "150.00 per hour",
+      "bookfor": "Hour",
+      "priceperday": "150.00 per hour",
+      "status": "Active",
+      "users": [
+        {
+          "name": "suneel",
+          "phone": "1234567890",
+          "email": "suneel@gmail.com",
+          "address": "qqq",
+          "company": "lucida",
+          "city": "fhfjgh",
+          "state": "ghfjvg",
+          "country": "indian",
+          "zip": "12345"
+        }
+      ],
+      "id": 5
     }
   ],
   "userBookings": [

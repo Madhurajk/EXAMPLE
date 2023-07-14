@@ -11,6 +11,7 @@ const UserDashboard = () => {
     const { data, error } = useGetRoomBookingsQuery();
 
     const navigateToAddBookingRoom = (booking) => {
+        
         navigate(`/bookroom/${booking.id}`, { state: { booking } })
     }
 

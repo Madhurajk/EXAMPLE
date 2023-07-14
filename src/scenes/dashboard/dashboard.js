@@ -52,7 +52,7 @@ const Dashboard = () => {
 
 
 <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme1}>
+      {/* <ThemeProvider theme={theme1}> */}
         <CssBaseline />
         <div className="app">
           <main className="content" style={{ display: "flex" }}>
@@ -68,14 +68,14 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 1"
-          backgroundColor={colors.greenAccent[200]}
+          backgroundColor={colors.greenAccent[800]}
           padding="30px"
         >
           <Typography
             variant="h9"
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
-          >
+            >
           </Typography>
           <Box height="240px">
             <Random1 />
@@ -84,7 +84,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 1"
-          backgroundColor={colors.greenAccent[200]}
+          backgroundColor={colors.greenAccent[800]}
           padding="30px"
         >
           <Typography
@@ -100,7 +100,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 1"
-          backgroundColor={colors.greenAccent[200]}
+          backgroundColor={colors.greenAccent[800]}
           padding="30px"
         >
           <Typography
@@ -116,7 +116,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 3"
-          backgroundColor={colors.greenAccent[100]}
+          // backgroundColor={colors.greenAccent[100]}
           padding="30px"
         >
           <Typography
@@ -133,7 +133,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 3"
-          backgroundColor={colors.greenAccent[100]}
+          // backgroundColor={colors.greenAccent[100]}
         >
           <Typography
             variant="h5"
@@ -148,7 +148,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 3"
-          backgroundColor={colors.greenAccent[100]}
+          // backgroundColor={colors.greenAccent[100]}
           padding="30px"
         >
           <Typography
@@ -161,51 +161,11 @@ const Dashboard = () => {
           <QuickLinks />        
             </Box>
         </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.greenAccent[50]}
-          padding="30px"
-        >
-          <Typography
-            variant="h9"
-            fontWeight="600"
-            sx={{ marginBottom: "15px" }}
-          >
-          </Typography>
-          <Box height="240px">
-            </Box>
         </Box>
-        <Box
-          gridColumn="span 1"
-          gridRow="span 1"
-          backgroundColor={colors.greenAccent[50]}
-          padding="10px"
-        >
-          <Typography
-            variant="h9"
-            fontWeight="600"
-            sx={{ marginBottom: "11px" }}
-          >
-          </Typography>
-          <Box height="240px">
-          </Box>
-        </Box>
-
-        <Box 
-        gridRow="span 1"
-        fontWeight="700"
-        alignItems="end"
-        height="5000px" mt="50px"
-        >
-        <p>{currTime}</p>
-         <p>{currDate}</p>
-         </Box>   
-      </Box>
     </Box>
           </main>
         </div>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </ColorModeContext.Provider>
     </Box>
 

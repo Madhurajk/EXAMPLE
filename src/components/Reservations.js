@@ -23,9 +23,11 @@ const Reservations = () => {
 };
   return (
     <>
+    <br />
+    <p><h2>Reservations</h2></p>
     <label><h3>Date : </h3></label>
     <div>
-        <input className="form-control" type="date" value={selectedDate ? formatDate(selectedDate) : ""} onChange={handleDateChange} ></input>
+        <input className="form-exampleFormControlTextarea1" type="date" value={selectedDate ? formatDate(selectedDate) : ""} onChange={handleDateChange} ></input>
     </div>
 {selectedDate && filteredBookings.length > 0 ? (
     <div>
