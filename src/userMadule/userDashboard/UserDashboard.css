@@ -1,20 +1,17 @@
 .header {
-    background: #f7cbcb;
+    background: #f9e0e0;
     height: 72px;
     padding: 0px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .user{
-    background-color: rgb(239, 244, 238);
-  }
   .form-control {
     display: block;
     width: 30%;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 100;
     line-height: 1;
     color: #212529;
     background-clip: padding-box;
@@ -24,4 +21,9 @@
     appearance: none;
     border-radius: 0.375rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    
   }
+  .leo{
+    text-align-last: center;
+
+ }

@@ -16,6 +16,7 @@ import EditMeetingRoom from './components/MeetingRoom/EditMeetingRoom';
 import EditDateBookingRoom from './components/Booking/EditDateBookingRoom';
 import UserBookRoom from './userMadule/bookRoom/UserBookRoom';
 import UserDashboard from './userMadule/userDashboard/UserDashboard';
+import UserConfirmation from './userMadule/UserConfirmation';
 
 function App1() {
   return (
@@ -36,6 +37,7 @@ function App1() {
                 <Route path="/editdatebookingroom/:id" element={<EditDateBookingRoom />}></Route>
                 <Route path="/bookroom/:id" element={<UserBookRoom />}></Route>
                 <Route path="/usersDashboard" element={<UserDashboard />}></Route>
+                <Route path="/userconfirmation" element={<UserConfirmation />}></Route>
 
                </Routes>
     </UserContextProvider>

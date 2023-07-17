@@ -18,7 +18,7 @@ const UserDashboard = () => {
     return (
         <div className='container-fluid p-0'>
             <div className="header">
-                <p><h1>Meeting rooms</h1></p>
+                <p><h2>Meeting rooms</h2></p>
                 
         <Link to="/">
                  <span>Logout</span>
@@ -29,7 +29,7 @@ const UserDashboard = () => {
                 <div className="card m-5 p-4" key={room.id}>
                     <div className="row">
                         <div className="col-6">
-                            <img src={room.image} width={"600px"}></img>
+                            <img src={room.image} width={"450px"}></img>
                             <div className="row">
                                 <div className="col">
                                     <p className="mt-3 mb-0">Capacity:</p>
@@ -46,6 +46,7 @@ const UserDashboard = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className='leo'>
                         <div className="col-6">
                             <p style={{ color: "brown", fontSize: "1.5rem", fontWeight: "bold" }}>{room.roomName}</p>
                             {room.description.map((data) => (
@@ -54,6 +55,7 @@ const UserDashboard = () => {
                                 </div>
                             ))}
                             <button type="button" className="btn btn-primary btn-lg" onClick={() => navigateToAddBookingRoom(room)}>Book this room</button>
+                        </div>
                         </div>
                         <hr ></hr>
                     </div>

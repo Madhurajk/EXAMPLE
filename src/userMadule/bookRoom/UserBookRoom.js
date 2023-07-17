@@ -60,11 +60,8 @@ const UserBookRoom = () => {
             users: [{ name, phone, email, address, company, city, state, country, zip }]
 
         };
-        addbooking(newBooking).unwrap().then((res) => {
-            setSuccessMessage("Booking added successfully..!");
-            navigate("/usersDashboard")
-            window.location.reload();
-        })
+        localStorage.setItem("BookingData", JSON.stringify(newBooking))
+        navigate("/userconfirmation")
     }
     const handleNextClick = () => {
         if (step === 1) {
@@ -75,7 +72,7 @@ const UserBookRoom = () => {
     return (
         <div className='user'>
             <div className="header">
-                <p> <h1>Meeting rooms</h1></p>
+                <p> <h2>Meeting rooms</h2></p>
             </div>
             <hr />
             {successMessage && <div className="mt-3 alert alert-success">{successMessage}</div>}
@@ -199,7 +196,7 @@ const UserBookRoom = () => {
                             <br></br>
                             <div className="col-2 "></div>
                             <div className="col-10 mt-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button type="button" className="btn btn-primary btn-lg" onClick={handleAddBooking}>Save</button>
+                                <button type="button" className="btn btn-primary btn-lg" onClick={handleAddBooking}>View Booking</button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button type="button" className="btn btn-dark btn-lg" onClick={() => navigate("/usersDashboard")}>Cancel</button>
                             </div>

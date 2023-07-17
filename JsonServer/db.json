@@ -181,6 +181,29 @@
         }
       ],
       "id": 5
+    },
+    {
+      "title": "Small Conference Room",
+      "date": "2023-07-17",
+      "capacity": "8 People",
+      "total": "89.00 per hour",
+      "bookfor": "Hour",
+      "priceperday": "89.00 per hour",
+      "status": "Active",
+      "users": [
+        {
+          "name": "Vijay",
+          "phone": "7867867866",
+          "email": "Vijay@gmail.com",
+          "address": "adsd",
+          "company": "Lucida",
+          "city": "asdsad",
+          "state": "asd",
+          "country": "India",
+          "zip": "123452"
+        }
+      ],
+      "id": 6
     }
   ],
   "userBookings": [
