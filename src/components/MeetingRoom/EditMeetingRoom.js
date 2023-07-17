@@ -24,10 +24,13 @@ function EditMeetingRoom() {
     const [bookfor, setBookFor] = useState(room.bookfor || []);
     const [priceperday, setPricePerDay] = useState(room?.priceperday);
     const [status, setStatus] = useState(room?.status);
+    const [selectedImage, setSelectedImage] = useState(null);
+
 
 const onSubmitHandler = (event) => {
     event.preventDefault();
-    const updatedRoom = { ...room, title, capacity, description, bookfor, priceperday, status };
+    const updatedRoom = {  ...room, title, capacity, description, bookfor, priceperday, status,
+      image: selectedImage ? URL.createObjectURL(selectedImage) : room.image, };
     editroom(updatedRoom).unwrap().then((response) => {
         window.location.reload();
     })
@@ -40,6 +43,10 @@ const handleCheckboxChange = (event) => {
     } else {
         setBookFor(bookfor.filter((option) => option !== optionValue));
     }
+};
+const handleImageChange = (e) => {
+  const file = e.target.files[0];
+  setSelectedImage(file);
 };
   return (
     <>
@@ -58,10 +65,15 @@ const handleCheckboxChange = (event) => {
           <label htmlFor="title" className="form-label">Title</label>
           <input className="form-control" name="title" value={title} onChange={(event) => setTitle(event.target.value)} />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="image" className="form-label">Image</label>
-          <input type='file' className="form-control" name="image" onChange={onChangeHandler} value={formData.image} />
-        </div> */}
+        <div className="col-2 mb-4">
+                                <label className="fs-5">Image</label>
+                            </div>
+                            <div className="col-10 mb-4">
+                                {room.image && (
+                                    <img src={room.image} alt="Room" className="img-fluid" width={"200px"} style={{ marginBottom: '10px' }}/>
+                                )}
+                                <input type="file" onChange={handleImageChange} accept="image/*" className="mx-4" />
+                            </div>
         <div className="form-group">
           <label htmlFor="capacity" className="form-label">Capacity</label>
           <input className="form-control" type='number' name="capacity" value={capacity} onChange={(event) => setCapacity(event.target.value)} />

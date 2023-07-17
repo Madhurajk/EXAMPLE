@@ -22,23 +22,41 @@ function MeetingRoom() {
     const [description, setDescription] = useState('');
     const [bookfor, setBookFor] = useState([]);
     const [priceperday, setPricePerDay] = useState('');
+    const [selectedImage, setSelectedImage] = useState(null);
+
     const [status, setStatus] = useState('');
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
+
+    let image = null;
+    if (selectedImage) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            image = reader.result;
+            saveRoomWithImage(image);
+        };
+        reader.readAsDataURL(selectedImage);
+    } else {
+        saveRoomWithImage(image);
+    }
+};
+
+const saveRoomWithImage = (image) => {
     const newRoom = {
         title,
         capacity: parseInt(capacity),
         description,
         bookfor,
         priceperday,
-        status
+        status,
+        image,
     };
-    addRooms(newRoom).unwrap().then((response) => {
-        setSuccessMessage("Room added successfully!");
-        window.location.reload();
-    })
-}
+
+    addRooms(newRoom).unwrap().then((res) => {
+            window.location.reload();
+        });
+};
 
 const handleCheckboxChange = (event) => {
   const value = event.target.value;
@@ -49,6 +67,11 @@ const handleCheckboxChange = (event) => {
           prevSelectedOptions.filter((option) => option !== value)
       );
   }
+};
+
+const handleImageChange = (e) => {
+  const file = e.target.files[0];
+  setSelectedImage(file);
 };
 
   return (
@@ -68,10 +91,17 @@ const handleCheckboxChange = (event) => {
           <label htmlFor="title" className="form-label">Title</label>
           <input className="form-control" name="title" value={title} onChange={(event) => setTitle(event.target.value)} />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="image" className="form-label">Image</label>
-          <input type='file' className="form-control" name="image" onChange={onChangeHandler} value={formData.image} />
-        </div> */}
+        
+        <div className="form-group">
+                                <label className="form-label">Image</label>
+                            </div>
+                            <div className="form-control">
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleImageChange}
+                                />
+                            </div>
         <div className="form-group">
           <label htmlFor="capacity" className="form-label">Capacity</label>
           <input className="form-control" type='number' name="capacity" value={capacity} onChange={(event) => setCapacity(event.target.value)} />

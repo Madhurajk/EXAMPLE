@@ -1,88 +1,100 @@
 {
   "users": [
     {
-      "username": "Madhu",
-      "email": "leo@gmail.com",
-      "role": "Admin",
-      "status": "Active",
+      "id": 1,
+      "name": "admin",
+      "password": "admin@123",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "status": "Active"
+    },
+    {
       "id": 2,
-      "name": "Leo"
-    },
-    {
-      "username": "Leo",
+      "name": "Madhu",
+      "password": "madhu@123",
       "email": "madhu@gmail.com",
-      "password": "leo@123",
       "role": "user",
-      "id": 3,
-      "status": "Active",
-      "name": "madhu"
-    },
-    {
-      "name": "MMM",
-      "email": "mmm@gmail.com",
-      "role": "Admin",
-      "status": "InActive",
-      "id": 5
+      "status": "InActive"
     }
   ],
   "rooms": [
     {
+      "id": 1,
+      "title": "SmallConferenceRoom",
+      "capacity": "20",
+      "status": "Active",
+      "total": "$450",
+      "date": "2023-07-05",
+      "priceperday": "200",
+      "bookfor": [
+        "Halfday"
+      ],
+      "image": "/small.jpg",
+      "users": [
+        {
+          "name": "leo1",
+          "phone": "1234567890",
+          "email": "leo1@example.com",
+          "address": "Banshankari",
+          "company": "Lucida",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "zip": "500072"
+        }
+      ],
+      "bookingsCount": 1
+    },
+    {
       "id": 2,
-      "title": "Medium Conference Room",
-      "capacity": "19",
+      "title": "LargeConferenceRoom",
+      "capacity": "30",
       "status": "Active",
       "startTime": "2023-06-30T10:00:00",
       "endTime": "2023-06-30T11:00:00",
-      "description": "It is a large conference room.",
+      "description": "It is a large conference room. The capacity of this room is for 40 people",
       "bookfor": [
-        "Multiple-days",
-        "Half-day",
-        "halfday"
+        "Multipledays",
+        "Halfday"
       ],
-      "priceperday": "1500"
+      "priceperday": "1500",
+      "image": "/large.jpg",
+      "bookingsCount": 2
     },
     {
       "id": 3,
-      "title": "Large Conference Room",
-      "capacity": "10",
+      "title": "PanoramicRoom",
+      "capacity": "7",
       "status": "InActive",
       "startTime": "2023-06-30T10:00:00",
       "endTime": "2023-06-30T11:00:00",
-      "description": "",
+      "description": "Panoramic room capacity of this room is for 7 people",
       "bookfor": [
-        "hour"
+        "Hour"
       ],
-      "priceperday": "5000"
-    },
-    {
-      "title": "Panoramic Room",
-      "capacity": 12,
-      "description": "",
-      "bookfor": [
-        "halfday"
-      ],
-      "priceperday": "100",
-      "status": "Active",
-      "id": 4
+      "priceperday": "1000",
+      "image": "/medium.jpg",
+      "bookingsCount": 1
     }
   ],
   "bookings": [
     {
       "id": 1,
-      "title": "Large Conference room",
-      "capacity": "10",
+      "title": "SmallConferenceRoom",
+      "capacity": "20",
       "status": "Confirmed",
-      "total": "$40",
-      "date": "2023-07-07",
-      "priceperday": "100",
-      "bookfor": "halfday",
+      "total": "$450",
+      "date": "2023-07-05",
+      "priceperday": "200",
+      "bookfor": "Halfday",
+      "image": "/small.jpg",
       "users": [
         {
-          "name": "Leo",
+          "name": "Madhu",
           "phone": "1234567890",
-          "email": "Leo@example.com",
+          "email": "madhu@example.com",
           "address": "Banshankari",
-          "company": "Lucida Technology Pvt Ltd",
+          "company": "Lucida",
           "city": "Bangalore",
           "state": "Karnataka",
           "country": "India",
@@ -92,41 +104,19 @@
     },
     {
       "id": 2,
-      "title": "Small Conference room",
-      "capacity": "22",
-      "status": "Pending",
-      "total": "$123.11",
-      "date": "2023-07-05",
-      "priceperday": "1000",
-      "bookfor": "Multiple Days",
-      "users": [
-        {
-          "name": "Madhu",
-          "phone": "9123456780",
-          "email": "madhu@example.com",
-          "address": "Banshankari",
-          "company": "Lucida Tech",
-          "city": "Bangalore",
-          "state": "Karnataka",
-          "country": "India",
-          "zip": "500072"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Small Conference Room",
+      "title": "LargeConferenceRoom",
       "capacity": "20",
-      "status": "Cancelled",
-      "total": "$450",
-      "date": "2023-07-22",
-      "priceperday": "500",
-      "bookfor": "hour",
+      "status": "Pending",
+      "total": "$545.20",
+      "date": "2023-07-17",
+      "priceperday": "1000",
+      "bookfor": "Multipledays",
+      "image": "/large.jpg",
       "users": [
         {
-          "name": "MMMM",
-          "phone": "1234509876",
-          "email": "mmm@example.com",
+          "name": "leo",
+          "phone": "1234567890",
+          "email": "leo@example.com",
           "address": "Banshankari",
           "company": "Lucida",
           "city": "Bangalore",
@@ -137,83 +127,37 @@
       ]
     },
     {
-      "title": "Panoramic room",
-      "date": "2023-07-01",
-      "capacity": "8 People",
-      "total": "89.00 per hour",
-      "bookfor": "Half day",
-      "priceperday": "89.00 per hour",
-      "status": "Active",
-      "users": [
-        {
-          "name": "Madhu",
-          "phone": "1234567890",
-          "email": "Madhu@gmail.com",
-          "address": "Banasankari",
-          "company": "Lucida",
-          "city": "Banaglore",
-          "state": "Karnataka",
-          "country": "India",
-          "zip": "571234"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "title": "Large Conference Room",
-      "date": "2023-07-13",
-      "capacity": "30 People",
-      "total": "150.00 per hour",
-      "bookfor": "Hour",
-      "priceperday": "150.00 per hour",
-      "status": "Active",
-      "users": [
-        {
-          "name": "suneel",
-          "phone": "1234567890",
-          "email": "suneel@gmail.com",
-          "address": "qqq",
-          "company": "lucida",
-          "city": "fhfjgh",
-          "state": "ghfjvg",
-          "country": "indian",
-          "zip": "12345"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "title": "Small Conference Room",
+      "title": "PanoramicRoom",
       "date": "2023-07-17",
-      "capacity": "8 People",
-      "total": "89.00 per hour",
+      "capacity": "11",
+      "total": "200",
       "bookfor": "Hour",
-      "priceperday": "89.00 per hour",
-      "status": "Active",
+      "priceperday": "111",
+      "status": "Confirmed",
       "users": [
         {
-          "name": "Vijay",
-          "phone": "7867867866",
-          "email": "Vijay@gmail.com",
-          "address": "adsd",
-          "company": "Lucida",
-          "city": "asdsad",
-          "state": "asd",
-          "country": "India",
-          "zip": "123452"
+          "name": "Madhu1",
+          "phone": "1234567890",
+          "email": "madhu1@gmail.com",
+          "address": "asfsf",
+          "company": "lucida",
+          "city": "sdfsdfsdf",
+          "state": "sfsdfsd",
+          "country": "india",
+          "zip": "sfsdfd"
         }
       ],
-      "id": 6
+      "id": 3
     }
   ],
   "userBookings": [
     {
       "id": 1,
-      "roomName": "Small Conference Room",
-      "capacity": "8 People",
+      "roomName": "SmallConferenceRoom",
+      "capacity": "12 People",
       "price": [
-        "89.00 per hour",
-        "2000 half day"
+        "69.00 per hour",
+        "250 half day"
       ],
       "image": "/small.jpg",
       "description": [
@@ -230,11 +174,11 @@
     },
     {
       "id": 2,
-      "roomName": "Large Conference Room",
-      "capacity": "30 People",
+      "roomName": "LargeConferenceRoom",
+      "capacity": "40 People",
       "price": [
-        "150.00 per hour",
-        "10000 per day"
+        "200.00 per hour",
+        "1000 per day"
       ],
       "image": "/large.jpg",
       "description": [
@@ -251,11 +195,11 @@
     },
     {
       "id": 3,
-      "roomName": "Panoramic  Room",
-      "capacity": "15 People",
+      "roomName": "PanoramicRoom",
+      "capacity": "20 People",
       "price": [
-        "180.00 per hour",
-        "700 per day"
+        "160.00 per hour",
+        "850 per day"
       ],
       "image": "/medium.jpg",
       "description": [

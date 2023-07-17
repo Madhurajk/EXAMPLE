@@ -53,7 +53,7 @@ const handleSearch = (event) => {
 };
 
 filteredUsers = filteredUsers?.filter((response) =>
-        response.name.includes(searchUser)
+        response.name.toLowerCase().includes(searchUser.toLowerCase())
     )
 
 if (selectedStatus !== 'All') {

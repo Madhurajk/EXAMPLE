@@ -9,13 +9,13 @@ import { ColorModeContext, useMode } from "../../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Sidebar from "../global/Sidebar";
 import { useState,useEffect } from 'react';
-import { useDeleteRoomMutation, useRoomsQuery } from '../../API/rtkQueryApi';
+import { useBookingsQuery, useDeleteRoomMutation, useEditRoomMutation, useRoomsQuery, } from '../../API/rtkQueryApi';
 import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
 import { DeleteForever } from '@mui/icons-material';
 import InputBase from "@mui/material/InputBase";
 import { IconButton} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-
+import { Link } from 'react-router-dom';
 
 
 const Contacts = () => {
@@ -26,19 +26,25 @@ const Contacts = () => {
   const [searchRoom, setSearchRoom] = useState('');
    const { data, error } = useRoomsQuery();
   const [deleteRoom] = useDeleteRoomMutation();
+  const [editroom] = useEditRoomMutation();
+  const { data: bookingData, error: bookingError } = useBookingsQuery();
   const navigate = useNavigate();
   const [successMessage, setSuccessMessage] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState('All');
+  let  filteredRooms;
 
 
   const userFormHandler = () =>{
     navigate("/meetingroom")
      }
-     const filteredRooms = data?.filter((response) =>
-     response.title.toLowerCase().includes(searchRoom.toLowerCase())
- )
+  
+
  const handleSearch = (event) => {
      setSearchRoom(event.target.value);
  };
+ const handleStatusChange = (status) => {
+  setSelectedStatus(status);
+};
 
  useEffect(() => {
   let timer;
@@ -50,6 +56,13 @@ const Contacts = () => {
   return () => clearTimeout(timer);
 }, [successMessage]);
 
+filteredRooms = data?.map((response)=> {
+  const bookingsCount = bookingData?.filter((booking) => booking.title === response.title).length;
+  return { ...response, bookingsCount };
+})?.filter((response) =>
+  response.title.toLowerCase().includes(searchRoom.toLowerCase())
+)
+
  const navigateToEditRoom = (room) => {
      navigate(`/editmeetingroom/${room.id}`, { state: { room } })
  }
@@ -60,6 +73,22 @@ const Contacts = () => {
          window.location.reload();
      })
  }
+const editStatus = (room, newStatus) => {
+        const updatedRoom = { ...room, status: newStatus };
+        return editroom(updatedRoom);
+      };
+      if (selectedStatus !== 'All') {
+        filteredRooms = filteredRooms.filter((room) => room.status === selectedStatus);
+    }
+
+
+      const handleEditStatus = async (room, newStatus) => {
+        try {
+          await editStatus(room, newStatus);
+          setSuccessMessage("Status updated successfully!");
+        } catch (error) {
+        }
+      };
 
 
   return (
@@ -101,7 +130,29 @@ const Contacts = () => {
         </IconButton>
       </Box>
       </Box>
-              </div>
+      </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <button
+                            type="button"
+                            className={`rounded btn-lg p-2 ${selectedStatus === 'All' ? 'active' : ''}`}
+                            onClick={() => handleStatusChange('All')}> All
+                        </button>&emsp;&emsp;
+                        <button
+                            type="button"
+                            className={`rounded ${selectedStatus === 'Active' ? 'active' : ''}`}
+                            onClick={() => handleStatusChange('Active')}>
+                            Active
+                        </button>&emsp;&emsp;
+                        <button
+                            type="button"
+                            className={`rounded ${selectedStatus === 'InActive' ? 'active' : ''}`}
+                            onClick={() => handleStatusChange('InActive')}>
+                                InActive
+                        </button>&emsp;&emsp;
+                       
+                    </div>
+                    <br />
                     <div className='card shadow bg-body rounded mt-5 p-3'>
                         {filteredRooms?.length === 0 ? (
                             <div>No data found.</div>
@@ -109,6 +160,7 @@ const Contacts = () => {
                             <table className="table table-striped border">
                                 <thead>
                                     <tr>
+                                        <th>Image</th>
                                         <th>Room</th>
                                         <th>Capacity</th>
                                         <th>Bokings</th>
@@ -118,10 +170,11 @@ const Contacts = () => {
                                 <tbody>
                                     {filteredRooms?.map((room) => (
                                         <tr>
+                                            <td><center><img src={room.image} width={"150px"}/></center></td>
                                             <td>{room.title}</td>
                                             <td>{room.capacity}</td>
-                                            <td>2</td>
-                                            <td>{room.status}</td>
+                                            <td><Link to="/invoices" style={{textDecoration:"none", fontWeight:"bold"}}>{room.bookingsCount}</Link></td>
+                                            <td contentEditable="true"  onBlur={(e) => handleEditStatus(room, e.target.textContent)}>{room.status}</td>
                                             <td><ModeEditOutlineRoundedIcon
                                         color="secondary"
                                         onClick={() => navigateToEditRoom(room)}

@@ -4,15 +4,19 @@ import { useAddbookingMutation } from '../API/rtkQueryApi';
 // import '../userMadule/userDashboard.css'
 
 const UserConfirmation = () => {
+
     const navigate = useNavigate();
     const location = useLocation();
+
     const [addbooking, error, isLoading] = useAddbookingMutation();
     const [successMessage, setSuccessMessage] = useState("");
 
     const storedBookingData = JSON.parse(localStorage.getItem('BookingData'));
     const newBooking = storedBookingData;
+
     const handleBooking = () => {
         addbooking(newBooking).unwrap().then((res) => {
+            
             setSuccessMessage("Booking added successfully!");
             navigate('/usersDashboard');
             localStorage.removeItem('BookingData');
