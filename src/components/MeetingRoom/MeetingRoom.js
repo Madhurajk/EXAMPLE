@@ -98,7 +98,7 @@ const handleImageChange = (e) => {
                             <div className="form-control">
                                 <input
                                     type="file"
-                                    accept="image/*"
+                                    accept="/*"
                                     onChange={handleImageChange}
                                 />
                             </div>

@@ -190,7 +190,7 @@ const DateRoom = () => {
                                             <div className="col-10 mb-4">
                                             {timeSlots?.map((slot) => (
                                                 <button key={slot}  onClick={() => handleTimeSlotSelect(slot)}
-                                                    value={slot} className={`ms-3 me-3 mt-3 btn btn-light  p-3 time-slot ${selectedTimeSlot.includes(slot) ?  'selected' : ''}`}>
+                                                    value={slot} className={`btn btn-primary btn-block ${selectedTimeSlot.includes(slot) ?  'selected' : ''}`}>
                                                     {slot}
 
                                                 </button>
