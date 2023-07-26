@@ -17,5 +17,10 @@ import SignIn from '../SignIn'
       const buttons  =  SignupPage.findAllByRole("button")
       expect(buttons)
    })
+test("valiadate email id should be correctly",()=>{
+    render(<SignIn />)
+    const validEmailInput = "Madhu@gmail.com";
+    except(validateEmail(validEmailInput)).toBe(true)
+})
 
 })
