@@ -134,18 +134,28 @@ const editStatus = (room, newStatus) => {
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                 <button
+
                             type="button"
+                             style={{
+                              backgroundColor:"aliceblue"
+                            }}
                             className={`rounded btn-lg p-2 ${selectedStatus === 'All' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('All')}> All
                         </button>&emsp;&emsp;
                         <button
                             type="button"
+                            style={{
+                              backgroundColor:"pink"
+                            }}
                             className={`rounded ${selectedStatus === 'Active' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('Active')}>
                             Active
                         </button>&emsp;&emsp;
                         <button
                             type="button"
+                            style={{
+                              backgroundColor:"red"
+                            }}
                             className={`rounded ${selectedStatus === 'InActive' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('InActive')}>
                                 InActive

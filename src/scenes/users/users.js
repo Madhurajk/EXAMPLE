@@ -104,15 +104,23 @@ const handleDelete = (userId) => {
                     height="4vh"
                     display="-ms-grid"  
                     alignItems="flex-start"
-                    >
-                    <button
+                    > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                           <button
                             type="button"
+                            style={{
+                              backgroundColor:"aliceblue"
+                            }}
                             className={`rounded ${selectedStatus === 'All' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('All')}> All
                         </button>
                         &nbsp; &nbsp; &nbsp; 
                         <button
                             type="button"
+                            style={{
+                              backgroundColor:"pink"
+                            }}
                             className={`rounded ${selectedStatus === 'Active' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('Active')}>
                             Active
@@ -120,12 +128,14 @@ const handleDelete = (userId) => {
                         &nbsp; &nbsp; &nbsp; 
                         <button
                             type="button"
+                            style={{
+                              backgroundColor:"red"
+                            }}
                             className={`rounded ${selectedStatus === 'InActive' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('InActive')}>
                                 InActive
                         </button>  
                         </Box>
-<br />
                     <div>
                         {filteredUsers?.length === 0 ? (
                             <div>No data found.</div>

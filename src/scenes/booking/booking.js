@@ -125,23 +125,35 @@ const [theme1, colorMode] = useMode();
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                       <button
                             type="button"
+                            style={{
+                              backgroundColor:"green"
+                            }}
                             className={`rounded ${selectedStatus === 'All' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('All')}> All
                         </button>&emsp;&emsp;
                         <button
                             type="button"
+                            style={{
+                              backgroundColor:"blue"
+                            }}
                             className={`rounded ${selectedStatus === 'Pending' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('Pending')}>
                             Pending
                         </button>&emsp;&emsp;
                         <button
                             type="button"
+                            style={{
+                              backgroundColor:"pink"
+                            }}
                             className={`rounded ${selectedStatus === 'Confirmed' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('Confirmed')}>
                             Confirmed
                         </button>&emsp;&emsp;
                         <button
                             type="button"
+                            style={{
+                              backgroundColor:"red"
+                            }}
                             className={`rounded ${selectedStatus === 'Cancelled' ? 'active' : ''}`}
                             onClick={() => handleStatusChange('Cancelled')}>
                             Cancelled

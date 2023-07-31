@@ -21,11 +21,10 @@ test("valiadate email id should be correctly",()=>{
     const validEmailInput = "Madhu@gmail.com";
     except(validateEmail(validEmailInput)).toBe(false)
 }),
-test("Email id should run correctly", ()=>{
-render(<SignIn />)
-const msg = screen.getByRole(/Don't have an account? Sign Up/);
-// userEvent.type(email, "madhu@gmail.com")
-except(msg)
-})
+test("Email id should not run correctly", ()=>{
+  const SignUpPages =  render(<SignIn />)
+    const msg = SignUpPages.getByText(/Don't have an account? Sign Up/);
+    except(msg);
+    })
 
 })

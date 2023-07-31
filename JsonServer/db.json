@@ -148,6 +148,29 @@
         }
       ],
       "id": 3
+    },
+    {
+      "title": "SmallConferenceRoom",
+      "date": "2023-07-27",
+      "capacity": "7",
+      "total": "1200",
+      "bookfor": "Halfday",
+      "priceperday": "1000",
+      "status": "Confirmed",
+      "users": [
+        {
+          "name": "Manju",
+          "phone": "1234567890",
+          "email": "manju@gmail.com",
+          "address": "Banasankari",
+          "company": "Lucida",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "zip": "571313"
+        }
+      ],
+      "id": 4
     }
   ],
   "userBookings": [

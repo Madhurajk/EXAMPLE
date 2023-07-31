@@ -23,7 +23,7 @@ const UserConfirmation = () => {
         })
     }
 
-    return(
+        return(
         <div className='container-fluid p-0'>
         <p> <h2>Meeting rooms</h2></p><hr />
         {successMessage && <div className="mt-3 alert alert-success">{successMessage}</div>}
@@ -72,7 +72,8 @@ const UserConfirmation = () => {
                     <p>---------------------------------------------------------------</p>
                     <div className="col-2 "></div>
                                         <div className="col-10 mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
-                                            <button type="button" className="btn btn-primary btn-lg" onClick={handleBooking}>Confirm</button>
+                                            <button type="button" className="btn btn-primary btn-lg" onClick={handleBooking}>Confirm</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" className="btn btn-primary btn-lg" onClick={() => navigate("/usersDashboard")} >Back</button>
                                         </div>
                     </div>
             )}
