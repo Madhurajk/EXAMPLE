@@ -90,7 +90,7 @@ const UserBookRoom = () => {
                                     <p className="mt-3 mb-0">Price:</p>
                                     {booking?.price?.map((data) => (
                                         <>
-                                            <p style={{ fontWeight: "bold" }} className="mb-0">~ {data}</p>
+                                            <p style={{ fontWeight: "bold" }} className="mb-0">$ {data}</p>
                                         </>
                                     ))}
                                 </div>
